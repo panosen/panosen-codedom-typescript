@@ -101,7 +101,7 @@ namespace Panosen.CodeDom.Typescript.Engine
         /// <summary>
         /// If
         /// </summary>
-        public const string IF = "If";
+        public const string IF = "if";
 
         /// <summary>
         /// import

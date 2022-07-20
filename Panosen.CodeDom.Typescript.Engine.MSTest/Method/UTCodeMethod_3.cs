@@ -18,9 +18,8 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
 
         protected override string PrepareExpected()
         {
-            return @"public TestMethod()
-{
-    using (var conn = new SqlConnection(null))
+            return @"TestMethod(): void {
+    Keywords.USING (var conn = new SqlConnection(null))
     {
         name = age.ToString();
         name = age.ToString();

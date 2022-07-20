@@ -29,8 +29,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
 
         protected override string PrepareExpected()
         {
-            return @"public TestMethod()
-{
+            return @"TestMethod(): void {
     response.Items = bookDBContext.Countrys.Where(v => v.Name == name).Select(v => new CasLocationVo
     {
         Value = ""country:"" + v.Value,
