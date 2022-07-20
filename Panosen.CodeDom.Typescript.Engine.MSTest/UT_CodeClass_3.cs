@@ -11,11 +11,10 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
     {
         protected override string PrepareExpected()
         {
-            return @"/// <summary>
-/// 学生
-/// </summary>
-public class Student<T>
-{
+            return @"/**
+ * 学生
+ */
+public class Student<T> {
 }
 ";
         }

@@ -11,19 +11,18 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
     {
         protected override string PrepareExpected()
         {
-            return @"/// <summary>
-/// 学生
-/// </summary>
-public class Student
-{
+            return @"/**
+ * 学生
+ */
+public class Student {
 
-    [Newtonsoft.Json.JsonProperty(""age"", NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+    @Newtonsoft.Json.JsonProperty(""age"", Newtonsoft.Json.NullValueHandling.Ignore)
     public int Age { get; set; }
 
-    [Newtonsoft.Json.JsonProperty(""name"")]
+    @Newtonsoft.Json.JsonProperty(""name"")
     public string Name { get; set; }
 
-    [Newtonsoft.Json.JsonProperty(key = ""123"")]
+    @Newtonsoft.Json.JsonProperty(""123"")
     public string Remark { get; set; }
 }
 ";

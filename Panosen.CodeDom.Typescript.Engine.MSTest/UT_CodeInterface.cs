@@ -44,21 +44,20 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
 
         protected override string PrepareExpected()
         {
-            return @"/// <summary>
-/// Student
-/// </summary>
-public interface IStudentRepository: IStudent, ITeacher
-{
+            return @"/**
+ * Student
+ */
+public interface IStudentRepository: IStudent, ITeacher {
 
-    /// <summary>
-    /// Method 0
-    /// </summary>
-    int Method0(int p1, int p2, int p3);
+    /**
+     * Method 0
+     */
+    Method0(p1: int, p2: int, p3: int): int;
 
-    /// <summary>
-    /// Method 1
-    /// </summary>
-    int Method1(int p1, int p2, int p3);
+    /**
+     * Method 1
+     */
+    Method1(p1: int, p2: int, p3: int): int;
 }
 ";
         }

@@ -17,7 +17,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
 
         protected override string PrepareExpected()
         {
-            return @"public TestMethod(string name, int age);
+            return @"TestMethod(name: string, age: int): void;
 ";
         }
     }

@@ -49,34 +49,34 @@ public class Student {
     /**
      * 属性 0
      */
-    public int Property0 { get; set; }
+    public number Property0 { get; set; }
 
     /**
      * 属性 1
      */
-    public virtual int Property1 { get; set; }
+    public Keywords.VIRTUAL number Property1 { get; set; }
 
     /**
      * 属性 2
      */
-    public override string Property2 { get; set; }
+    public Keywords.OVERRIDE string Property2 { get; set; }
 
     /**
      * 属性 3
      */
-    public int Property3 { get; set; } = 333;
+    public number Property3 { get; set; } = 333;
 
     /**
      * 属性 4
      */
-    public int Property4 { get; set; } = 444;
+    public number Property4 { get; set; } = 444;
 
     /**
      * 属性 5
      */
     public string Property5 { get; set; } = ""555"";
 
-    public int age
+    public number age
     {
         get { return 1; }
         set
@@ -92,13 +92,13 @@ public class Student {
     /**
      * 方法 0
      */
-    public Method0(int p1, int p2, int p3): number {
+    public Method0(p1: number, p2: number, p3: number): number {
     }
 
     /**
      * 方法 1
      */
-    public Method1(p1: number, p2: number, p3: number): int {
+    public Method1(p1: number, p2: number, p3: number): number {
     }
 
     methodX(

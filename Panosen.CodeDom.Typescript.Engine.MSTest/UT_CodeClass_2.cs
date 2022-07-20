@@ -11,34 +11,30 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
     {
         protected override string PrepareExpected()
         {
-            return @"/// <summary>
-/// 学生
-/// </summary>
-public class Student
-{
+            return @"/**
+ * 学生
+ */
+public class Student {
 
-    /// <summary>
-    /// 方法 0
-    /// </summary>
-    public int Method0(int p1, int p2, int p3)
-    {
+    /**
+     * 方法 0
+     */
+    public Method0(p1: int, p2: int, p3: int): int {
     }
 
-    /// <summary>
-    /// 方法 1
-    /// </summary>
-    public int Method1<THelp, TCalc, TService>(int p1, int p2, int p3)
-        where THelp : Help, IHelp
-        where TCalc : Calc, ICalc
-    {
+    /**
+     * 方法 1
+     */
+    public Method1<THelp, TCalc, TService>(p1: int, p2: int, p3: int)
+        Keywords.WHERE THelp : Help, IHelp
+        Keywords.WHERE TCalc : Calc, ICalc: int {
     }
 
     methodX(
-        int p1,
-        int p2,
-        int p3,
-        int p4)
-    {
+        p1: int,
+        p2: int,
+        p3: int,
+        p4: int): void {
     }
 }
 ";

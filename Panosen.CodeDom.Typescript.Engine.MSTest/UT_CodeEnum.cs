@@ -11,9 +11,9 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
     {
         protected override string PrepareExpected()
         {
-            return @"/// <summary>
-/// 状态
-/// </summary>
+            return @"/**
+ * 状态
+ */
 public enum Status
 {
 
@@ -23,19 +23,19 @@ public enum Status
 
     A_2,
 
-    /// <summary>
-    /// of 0
-    /// </summary>
+    /**
+     * of 0
+     */
     B_0,
 
-    /// <summary>
-    /// of 1
-    /// </summary>
+    /**
+     * of 1
+     */
     B_1,
 
-    /// <summary>
-    /// of 2
-    /// </summary>
+    /**
+     * of 2
+     */
     B_2,
 
     C_0 = 10,

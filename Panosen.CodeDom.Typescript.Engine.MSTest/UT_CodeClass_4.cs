@@ -11,13 +11,12 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
     {
         protected override string PrepareExpected()
         {
-            return @"/// <summary>
-/// 学生
-/// </summary>
+            return @"/**
+ * 学生
+ */
 public class Student<TAdd, TMinus, TCalc>
-    where TAdd : Add
-    where TMinus : Minus, IMinus
-{
+    Keywords.WHERE TAdd : Add
+    Keywords.WHERE TMinus : Minus, IMinus {
 }
 ";
         }

@@ -22,7 +22,9 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
             var actual = builder.ToString();
 
             var expeced = @"import Ref, { List } from 'core';
+
 import Ok from 'ok';
+
 import ZhangSan from './zhang-san';
 
 /**
