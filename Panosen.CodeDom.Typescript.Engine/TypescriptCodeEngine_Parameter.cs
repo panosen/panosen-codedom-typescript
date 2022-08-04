@@ -34,6 +34,11 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             if (!string.IsNullOrEmpty(codeParameter.Type))
             {
+                if (codeParameter.Optional)
+                {
+                    codeWriter.Write(Marks.QUESTION);
+                }
+
                 codeWriter.Write(Marks.COLON).Write(Marks.WHITESPACE).Write(codeParameter.Type);
             }
         }

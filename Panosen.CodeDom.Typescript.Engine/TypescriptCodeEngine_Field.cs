@@ -31,17 +31,12 @@ namespace Panosen.CodeDom.Typescript.Engine
                 codeWriter.Write(Keywords.STATIC).Write(Marks.WHITESPACE);
             }
 
-            if (codeField.IsReadOnly)
-            {
-                codeWriter.Write("Keywords.READONLY").Write(Marks.WHITESPACE);
-            }
-
-            if (codeField.IsVolatile)
-            {
-                codeWriter.Write("Keywords.VOLATILE").Write(Marks.WHITESPACE);
-            }
-
             codeWriter.Write(codeField.Name ?? string.Empty);
+
+            if (codeField.Optional)
+            {
+                codeWriter.Write(Marks.QUESTION);
+            }
 
             codeWriter.Write(Marks.COLON).Write(Marks.WHITESPACE);
 

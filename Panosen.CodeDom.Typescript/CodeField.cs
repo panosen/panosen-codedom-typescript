@@ -23,19 +23,14 @@ namespace Panosen.CodeDom.Typescript
         public string Type { get; set; }
 
         /// <summary>
+        /// 是否可选
+        /// </summary>
+        public bool Optional { get; set; }
+
+        /// <summary>
         /// static
         /// </summary>
         public bool IsStatic { get; set; }
-
-        /// <summary>
-        /// 是否是只读字段
-        /// </summary>
-        public bool IsReadOnly { get; set; }
-
-        /// <summary>
-        /// volatile
-        /// </summary>
-        public bool IsVolatile { get; set; }
 
         /// <summary>
         /// 值

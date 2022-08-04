@@ -285,10 +285,9 @@ namespace Panosen.CodeDom.Typescript
             string type,
             string name,
             bool isStatic = false,
-            bool isVolatile = false,
-            bool isReadOnly = false,
             string summary = null,
             DataItem value = null,
+            bool optional = false,
             AccessModifiers accessModifiers = AccessModifiers.Private)
         {
             if (codeClass.FieldList == null)
@@ -300,8 +299,7 @@ namespace Panosen.CodeDom.Typescript
             codeField.Type = type;
             codeField.Name = name;
             codeField.IsStatic = isStatic;
-            codeField.IsVolatile = isVolatile;
-            codeField.IsReadOnly = isReadOnly;
+            codeField.Optional = optional;
             codeField.Summary = summary;
             codeField.AccessModifiers = accessModifiers;
             codeField.Value = value;

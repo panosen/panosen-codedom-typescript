@@ -4,7 +4,7 @@
     <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
     <AssemblyName>Panosen.CodeDom.Typescript</AssemblyName>
     <RootNamespace>Panosen.CodeDom.Typescript</RootNamespace>
-    <Version>0.1.0</Version>
+    <Version>0.1.3</Version>
     <Authors>harriszhang@live.cn</Authors>
     <Company>harriszhang@live.cn</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Panosen.CodeDom" Version="1.6.0" />
+    <PackageReference Include="Panosen.CodeDom" Version="1.7.0" />
   </ItemGroup>
 
 </Project>

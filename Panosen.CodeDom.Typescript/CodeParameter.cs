@@ -17,6 +17,11 @@ namespace Panosen.CodeDom.Typescript
         public string Type { get; set; }
 
         /// <summary>
+        /// 是否可以为空
+        /// </summary>
+        public bool Optional { get; set; }
+
+        /// <summary>
         /// 特性
         /// </summary>
         public List<CodeDecorator> AttributeList { get; set; }

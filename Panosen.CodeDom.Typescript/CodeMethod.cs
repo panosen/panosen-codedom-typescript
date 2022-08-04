@@ -199,7 +199,7 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// Add Parameter
         /// </summary>
-        public static CodeParameter AddParameter(this CodeMethod codeMethod, string type, string name, string summary = null, bool withThis = false)
+        public static CodeParameter AddParameter(this CodeMethod codeMethod, string type, string name, string summary = null, bool optional = false)
         {
             if (codeMethod.Parameters == null)
             {
@@ -209,6 +209,7 @@ namespace Panosen.CodeDom.Typescript
             CodeParameter parameter = new CodeParameter();
             parameter.Name = name;
             parameter.Type = type;
+            parameter.Optional = optional;
             parameter.Summary = summary;
 
             codeMethod.Parameters.Add(parameter);
