@@ -46,31 +46,12 @@ namespace Panosen.CodeDom.Typescript.Engine
                 codeWriter.Write(Keywords.STATIC).Write(Marks.WHITESPACE);
             }
 
-            if (codeMethod.IsAsync)
-            {
-                codeWriter.Write("Keywords.ASYNC").Write(Marks.WHITESPACE);
-            }
-
-            if (codeMethod.IsImplicit)
-            {
-                codeWriter.Write("Keywords.IMPLICIT").Write(Marks.WHITESPACE);
-            }
-
-            if (codeMethod.IsOperator)
-            {
-                codeWriter.Write("Keywords.OPERATOR").Write(Marks.WHITESPACE);
-            }
-
             codeWriter.Write(codeMethod.Name ?? string.Empty);
 
             //泛型参数
             GenerateGeneraicParameters(codeMethod.GenericParamsterList, codeWriter, options);
 
-            codeWriter.Write(Marks.LEFT_BRACKET);
-
             GenerateMethodParameters(codeMethod.Parameters, codeWriter, options);
-
-            codeWriter.Write(Marks.RIGHT_BRACKET);
 
             //泛型参数约束
             GenerateGenericParametersConstraint(codeMethod.GenericParamsterList, codeWriter, options);
@@ -107,8 +88,11 @@ namespace Panosen.CodeDom.Typescript.Engine
 
         private void GenerateMethodParameters(List<CodeParameter> parameters, CodeWriter codeWriter, GenerateOptions options)
         {
+            codeWriter.Write(Marks.LEFT_BRACKET);
+
             if (parameters == null || parameters.Count == 0)
             {
+                codeWriter.Write(Marks.RIGHT_BRACKET);
                 return;
             }
 
@@ -117,6 +101,8 @@ namespace Panosen.CodeDom.Typescript.Engine
             if (wrapParameter)
             {
                 GenerateMethodParametersWrapped(parameters, codeWriter, options);
+
+                codeWriter.Write(options.IndentString).Write(Marks.RIGHT_BRACKET);
                 return;
             }
 
@@ -132,6 +118,8 @@ namespace Panosen.CodeDom.Typescript.Engine
                     codeWriter.Write(Marks.COMMA).Write(Marks.WHITESPACE);
                 }
             }
+
+            codeWriter.Write(Marks.RIGHT_BRACKET);
         }
 
         /// <summary>
@@ -153,8 +141,9 @@ namespace Panosen.CodeDom.Typescript.Engine
                 moveNext = enumerator.MoveNext();
                 if (moveNext)
                 {
-                    codeWriter.WriteLine(Marks.COMMA);
+                    codeWriter.Write(Marks.COMMA);
                 }
+                codeWriter.WriteLine();
             }
 
             options.PopIndent();

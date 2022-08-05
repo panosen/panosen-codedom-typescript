@@ -47,21 +47,6 @@ namespace Panosen.CodeDom.Typescript
         public bool IsStatic { get; set; }
 
         /// <summary>
-        /// async
-        /// </summary>
-        public bool IsAsync { get; set; }
-
-        /// <summary>
-        /// implicit
-        /// </summary>
-        public bool IsImplicit { get; set; }
-
-        /// <summary>
-        /// operator
-        /// </summary>
-        public bool IsOperator { get; set; }
-
-        /// <summary>
         /// 是否是覆盖或实现基类
         /// </summary>
         public bool IsOverride { get; set; }
@@ -103,36 +88,6 @@ namespace Panosen.CodeDom.Typescript
         public static TCodeMethod SetIsStatic<TCodeMethod>(this TCodeMethod codeMethod, bool isStatic) where TCodeMethod : CodeMethod
         {
             codeMethod.IsStatic = isStatic;
-
-            return codeMethod;
-        }
-
-        /// <summary>
-        /// 设置 IsAsync
-        /// </summary>
-        public static TCodeMethod SetIsAsync<TCodeMethod>(this TCodeMethod codeMethod, bool isAsync) where TCodeMethod : CodeMethod
-        {
-            codeMethod.IsAsync = isAsync;
-
-            return codeMethod;
-        }
-
-        /// <summary>
-        /// 设置 IsImplicit
-        /// </summary>
-        public static TCodeMethod SetIsImplicit<TCodeMethod>(this TCodeMethod codeMethod, bool isImplicit) where TCodeMethod : CodeMethod
-        {
-            codeMethod.IsImplicit = isImplicit;
-
-            return codeMethod;
-        }
-
-        /// <summary>
-        /// 设置 IsOperator
-        /// </summary>
-        public static TCodeMethod SetIsOperator<TCodeMethod>(this TCodeMethod codeMethod, bool isOperator) where TCodeMethod : CodeMethod
-        {
-            codeMethod.IsOperator = isOperator;
 
             return codeMethod;
         }
