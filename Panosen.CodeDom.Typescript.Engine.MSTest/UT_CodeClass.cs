@@ -105,7 +105,8 @@ public class Student {
         p1: number,
         p2: number,
         p3: number,
-        p4: number): void {
+        p4: number
+    ): void {
     }
 }
 ";
