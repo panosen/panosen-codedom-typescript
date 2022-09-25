@@ -47,7 +47,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
             return @"/**
  * Student
  */
-public interface IStudentRepository: IStudent, ITeacher {
+public interface IStudentRepository extends IStudent, ITeacher {
 
     /**
      * Method 0

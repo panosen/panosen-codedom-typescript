@@ -35,7 +35,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             if (codeInterface.ParentInterfaceList != null && codeInterface.ParentInterfaceList.Count > 0)
             {
-                codeWriter.Write(Marks.COLON);
+                codeWriter.Write(Marks.WHITESPACE).Write(Keywords.EXTENDS);
                 for (int i = 0; i < codeInterface.ParentInterfaceList.Count; i++)
                 {
                     codeWriter.Write(Marks.WHITESPACE).Write(codeInterface.ParentInterfaceList[i].Name);
