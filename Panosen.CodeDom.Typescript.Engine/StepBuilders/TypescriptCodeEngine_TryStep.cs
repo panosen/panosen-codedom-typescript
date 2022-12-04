@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateTryStepBuilder(TryStep tryStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateTryStep(TryStep tryStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             if (tryStepBuilder == null) { return; }
             if (codeWriter == null) { return; }
@@ -16,17 +16,17 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             codeWriter.Write(options.IndentString).WriteLine(Keywords.TRY);
 
-            GenerateStepBuilderOrCollectionListAsBlock(tryStepBuilder.StepBuilders, codeWriter, options);
+            GenerateStepOrCollectionListAsBlock(tryStepBuilder.Steps, codeWriter, options);
 
             if (tryStepBuilder.CatchStepBuilders != null && tryStepBuilder.CatchStepBuilders.Count > 0)
             {
                 foreach (var catchStepBuilder in tryStepBuilder.CatchStepBuilders)
                 {
-                    GenerateCacheStepBuilder(catchStepBuilder, codeWriter, options);
+                    GenerateCacheStep(catchStepBuilder, codeWriter, options);
                 }
             }
 
-            GenerateFinallyStepBuilder(tryStepBuilder.FinallyStepBuilder, codeWriter, options);
+            GenerateFinallyStep(tryStepBuilder.FinallyStepBuilder, codeWriter, options);
         }
     }
 }

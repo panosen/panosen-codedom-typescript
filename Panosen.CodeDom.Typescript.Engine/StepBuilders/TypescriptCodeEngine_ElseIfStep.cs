@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateElseIfStepBuilder(ElseIfStep elseIfStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateElseIfStep(ElseIfStep elseIfStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             if (elseIfStepBuilder == null) { return; }
             if (codeWriter == null) { return; }
@@ -19,7 +19,7 @@ namespace Panosen.CodeDom.Typescript.Engine
                 .Write(Marks.LEFT_BRACKET).Write(elseIfStepBuilder.Condition ?? string.Empty)
                 .WriteLine(Marks.RIGHT_BRACKET);
 
-            GenerateStepBuilderOrCollectionListAsBlock(elseIfStepBuilder.StepBuilders, codeWriter, options);
+            GenerateStepOrCollectionListAsBlock(elseIfStepBuilder.Steps, codeWriter, options);
         }
     }
 }

@@ -8,20 +8,20 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GeneratePushIndentStepBuilder(PushIndentStep pushIndentStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GeneratePushIndentStep(PushIndentStep pushIndentStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             codeWriter.Write(options.IndentString).WriteLine(pushIndentStepBuilder.Key ?? string.Empty);
 
-            if (pushIndentStepBuilder.StepBuilders == null || pushIndentStepBuilder.StepBuilders.Count == 0)
+            if (pushIndentStepBuilder.Steps == null || pushIndentStepBuilder.Steps.Count == 0)
             {
                 return;
             }
 
             options.PushIndent();
 
-            foreach (var item in pushIndentStepBuilder.StepBuilders)
+            foreach (var item in pushIndentStepBuilder.Steps)
             {
-                GenerateStepBuilderOrCollection(item, codeWriter, options);
+                GenerateStepOrCollection(item, codeWriter, options);
             }
 
             options.PopIndent();

@@ -46,7 +46,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             if (dataItem is CodeLamdaStepBuilderCollection)
             {
-                GenerateLamdaStepBuilderCollection(dataItem as CodeLamdaStepBuilderCollection, codeWriter, options);
+                GenerateLamdaStepCollection(dataItem as CodeLamdaStepBuilderCollection, codeWriter, options);
             }
         }
     }

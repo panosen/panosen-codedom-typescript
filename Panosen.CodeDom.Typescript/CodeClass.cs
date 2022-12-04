@@ -261,7 +261,7 @@ namespace Panosen.CodeDom.Typescript
         {
             CodeMethod codeMethod = new CodeMethod();
             codeMethod.Name = "constructor";
-            codeMethod.StepBuilders = new List<StepOrCollection>();
+            codeMethod.StepCollection = new StepCollection();
 
             codeClass.Constructor = codeMethod;
 

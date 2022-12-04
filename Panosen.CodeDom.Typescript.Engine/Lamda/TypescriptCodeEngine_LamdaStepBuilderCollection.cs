@@ -11,7 +11,7 @@ namespace Panosen.CodeDom.Typescript.Engine
         /// <summary>
         /// ${param} => ${expression}
         /// </summary>
-        public void GenerateLamdaStepBuilderCollection(CodeLamdaStepBuilderCollection lamda, CodeWriter codeWriter, GenerateOptions options = null)
+        public void GenerateLamdaStepCollection(CodeLamdaStepBuilderCollection lamda, CodeWriter codeWriter, GenerateOptions options = null)
         {
             if (lamda == null) { return; }
             if (codeWriter == null) { return; }
@@ -29,7 +29,7 @@ namespace Panosen.CodeDom.Typescript.Engine
             codeWriter.Write(options.IndentString).WriteLine(Marks.LEFT_BRACE);
             options.PushIndent();
 
-            GenerateStepBuilderOrCollectionList(lamda.StepBuilders, codeWriter, options);
+            GenerateStepCollection(lamda.StepCollection, codeWriter, options);
 
             options.PopIndent();
             codeWriter.Write(options.IndentString).Write(Marks.RIGHT_BRACE);

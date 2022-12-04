@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateFinallyStepBuilder(FinallyStep finallyStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateFinallyStep(FinallyStep finallyStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             if (finallyStepBuilder == null) { return; }
             if (codeWriter == null) { return; }
@@ -16,7 +16,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             codeWriter.Write(options.IndentString).WriteLine(Keywords.FINALLY);
 
-            GenerateStepBuilderOrCollectionListAsBlock(finallyStepBuilder.StepBuilders, codeWriter, options);
+            GenerateStepOrCollectionListAsBlock(finallyStepBuilder.Steps, codeWriter, options);
         }
     }
 }

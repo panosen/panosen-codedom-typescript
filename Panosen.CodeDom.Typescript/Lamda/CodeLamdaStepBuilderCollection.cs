@@ -9,19 +9,19 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// ${Parameter} => ${Expression}
     /// </summary>
-    public class CodeLamdaStepBuilderCollection : DataItem, IStepCollection
+    public class CodeLamdaStepBuilderCollection : DataItem, IStepCollectionHost
     {
         /// <summary>
         /// 参数
         /// </summary>
         public string Parameter { get; set; }
 
-        #region IStepBuilderCollection Members
+        #region IStepCollectionHost Members
 
         /// <summary>
         /// 步骤
         /// </summary>
-        public List<StepOrCollection> StepBuilders { get; set; }
+        public StepCollection StepCollection { get; set; }
 
         #endregion
     }

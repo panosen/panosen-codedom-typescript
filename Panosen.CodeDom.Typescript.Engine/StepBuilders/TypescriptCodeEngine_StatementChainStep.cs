@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateStatementChainStepBuilder(StatementChainStep statementChainStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateStatementChainStep(StatementChainStep statementChainStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             if (statementChainStepBuilder == null) { return; }
             if (codeWriter == null) { return; }
@@ -25,14 +25,14 @@ namespace Panosen.CodeDom.Typescript.Engine
             {
                 for (int i = 0; i < statementChainStepBuilder.CallMethodExpressions.Count; i++)
                 {
-                    GenerateStatementChainStepBuilder_Chain(statementChainStepBuilder.CallMethodExpressions[i], codeWriter, options, i > 0 || !string.IsNullOrEmpty(statementChainStepBuilder.Target));
+                    GenerateStatementChainStep_Chain(statementChainStepBuilder.CallMethodExpressions[i], codeWriter, options, i > 0 || !string.IsNullOrEmpty(statementChainStepBuilder.Target));
                 }
             }
 
             codeWriter.WriteLine(Marks.SEMICOLON);
         }
 
-        private void GenerateStatementChainStepBuilder_Chain(CallMethodExpression callMethodExpression, CodeWriter codeWriter, GenerateOptions options, bool withDot)
+        private void GenerateStatementChainStep_Chain(CallMethodExpression callMethodExpression, CodeWriter codeWriter, GenerateOptions options, bool withDot)
         {
             if (callMethodExpression.StartFromNewLine)
             {

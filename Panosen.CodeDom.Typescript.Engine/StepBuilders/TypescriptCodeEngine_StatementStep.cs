@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private static void GenerateStatementStepBuilder(StatementStep statementStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private static void GenerateStatementStep(StatementStep statementStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             codeWriter.Write(options.IndentString).WriteLine(statementStepBuilder.Statement);
         }

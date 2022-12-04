@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// 方法
     /// </summary>
-    public class CodeMethod : DataItem, IStepCollection
+    public class CodeMethod : DataItem, IStepCollectionHost
     {
         /// <summary>
         /// 名称
@@ -56,12 +56,12 @@ namespace Panosen.CodeDom.Typescript
         /// </summary>
         public List<CodeGenericParamster> GenericParamsterList { get; set; }
 
-        #region IStepBuilderCollection Members
+        #region IStepCollectionHost Members
 
         /// <summary>
-        /// IStepBuilderCollection.StepBuilders
+        /// 步骤
         /// </summary>
-        public List<StepOrCollection> StepBuilders { get; set; }
+        public StepCollection StepCollection { get; set; }
 
         #endregion
     }
@@ -154,18 +154,19 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// Add Parameter
         /// </summary>
-        public static CodeParameter AddParameter(this CodeMethod codeMethod, string type, string name, string summary = null, bool optional = false)
+        public static CodeParameter AddParameter(this CodeMethod codeMethod, string type, string name, string summary = null, bool optional = false, AccessModifiers accessModifiers = AccessModifiers.None)
         {
             if (codeMethod.Parameters == null)
             {
                 codeMethod.Parameters = new List<CodeParameter>();
             }
 
-            CodeParameter parameter = new CodeParameter();
+            var parameter = new CodeParameter();
             parameter.Name = name;
             parameter.Type = type;
             parameter.Optional = optional;
             parameter.Summary = summary;
+            parameter.AccessModifiers = accessModifiers;
 
             codeMethod.Parameters.Add(parameter);
 

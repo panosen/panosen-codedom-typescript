@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateWhileStepBuilder(WhileStep whileStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateWhileStep(WhileStep whileStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             if (whileStepBuilder == null) { return; }
             if (codeWriter == null) { return; }
@@ -16,7 +16,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             codeWriter.Write(options.IndentString).Write(Keywords.WHILE).Write(Marks.WHITESPACE).Write(Marks.LEFT_BRACKET).Write(whileStepBuilder.Condition ?? string.Empty).WriteLine(Marks.RIGHT_BRACKET);
 
-            GenerateStepBuilderOrCollectionListAsBlock(whileStepBuilder.StepBuilders, codeWriter, options);
+            GenerateStepOrCollectionListAsBlock(whileStepBuilder.Steps, codeWriter, options);
         }
     }
 }

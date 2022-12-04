@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateElseStepBuilder(ElseStep elseStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateElseStep(ElseStep elseStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             if (elseStepBuilder == null) { return; }
             if (codeWriter == null) { return; }
@@ -16,7 +16,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             codeWriter.Write(options.IndentString).WriteLine(Keywords.ELSE);
 
-            GenerateStepBuilderOrCollectionListAsBlock(elseStepBuilder.StepBuilders, codeWriter, options);
+            GenerateStepOrCollectionListAsBlock(elseStepBuilder.Steps, codeWriter, options);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Panosen.CodeDom.Typescript.Engine
     /// </summary>
     partial class TypescriptCodeEngine
     {
-        private void GenerateStepBuilderOrCollectionList(List<StepOrCollection> stepBuilders, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateStepOrCollectionList(List<StepOrCollection> stepBuilders, CodeWriter codeWriter, GenerateOptions options)
         {
             if (stepBuilders == null || stepBuilders.Count <= 0)
             {
@@ -20,7 +20,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             foreach (var item in stepBuilders)
             {
-                GenerateStepBuilderOrCollection(item, codeWriter, options);
+                GenerateStepOrCollection(item, codeWriter, options);
             }
         }
     }

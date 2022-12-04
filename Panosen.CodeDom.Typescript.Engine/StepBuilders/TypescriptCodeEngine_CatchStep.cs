@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateCacheStepBuilder(CatchStep catchStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateCacheStep(CatchStep catchStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             if (catchStepBuilder == null) { return; }
             if (codeWriter == null) { return; }
@@ -28,7 +28,7 @@ namespace Panosen.CodeDom.Typescript.Engine
             }
             codeWriter.WriteLine();
 
-            GenerateStepBuilderOrCollectionListAsBlock(catchStepBuilder.StepBuilders, codeWriter, options);
+            GenerateStepOrCollectionListAsBlock(catchStepBuilder.Steps, codeWriter, options);
         }
     }
 }

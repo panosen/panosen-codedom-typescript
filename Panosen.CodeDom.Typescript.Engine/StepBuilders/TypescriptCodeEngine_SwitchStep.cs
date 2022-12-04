@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateSwitchStepBuilder(SwitchStep switchStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateSwitchStep(SwitchStep switchStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             // switch (${expression})
             codeWriter.Write(options.IndentString).Write(Keywords.SWITCH).Write(Marks.WHITESPACE)
@@ -34,7 +34,7 @@ namespace Panosen.CodeDom.Typescript.Engine
                         options.PushIndent();
 
                         // {
-                        if (item.StepBuilders != null && item.StepBuilders.Count > 0)
+                        if (item.Steps != null && item.Steps.Count > 0)
                         {
                             codeWriter.Write(options.IndentString).WriteLine(Marks.LEFT_BRACE);
                         }
@@ -42,13 +42,13 @@ namespace Panosen.CodeDom.Typescript.Engine
                         {
                             options.PushIndent();
 
-                            GenerateStepBuilderOrCollectionList(item.StepBuilders, codeWriter, options);
+                            GenerateStepOrCollectionList(item.Steps, codeWriter, options);
 
                             options.PopIndent();
                         }
 
                         // }
-                        if (item.StepBuilders != null && item.StepBuilders.Count > 0)
+                        if (item.Steps != null && item.Steps.Count > 0)
                         {
                             codeWriter.Write(options.IndentString).WriteLine(Marks.RIGHT_BRACE);
                         }
@@ -69,7 +69,7 @@ namespace Panosen.CodeDom.Typescript.Engine
                 options.PushIndent();
 
                 // {
-                if (switchStepBuilder.DefaultStepBuilders.StepBuilders != null && switchStepBuilder.DefaultStepBuilders.StepBuilders.Count > 0)
+                if (switchStepBuilder.DefaultStepBuilders.Steps != null && switchStepBuilder.DefaultStepBuilders.Steps.Count > 0)
                 {
                     codeWriter.Write(options.IndentString).WriteLine(Marks.LEFT_BRACE);
                 }
@@ -77,13 +77,13 @@ namespace Panosen.CodeDom.Typescript.Engine
                 {
                     options.PushIndent();
 
-                    GenerateStepBuilderOrCollectionList(switchStepBuilder.DefaultStepBuilders.StepBuilders, codeWriter, options);
+                    GenerateStepOrCollectionList(switchStepBuilder.DefaultStepBuilders.Steps, codeWriter, options);
 
                     options.PopIndent();
                 }
 
                 // }
-                if (switchStepBuilder.DefaultStepBuilders.StepBuilders != null && switchStepBuilder.DefaultStepBuilders.StepBuilders.Count > 0)
+                if (switchStepBuilder.DefaultStepBuilders.Steps != null && switchStepBuilder.DefaultStepBuilders.Steps.Count > 0)
                 {
                     codeWriter.Write(options.IndentString).WriteLine(Marks.RIGHT_BRACE);
                 }

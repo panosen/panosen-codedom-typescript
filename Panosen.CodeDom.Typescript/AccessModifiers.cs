@@ -24,27 +24,7 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// private
         /// </summary>
-        Private = 2,
-
-        /// <summary>
-        /// protected
-        /// </summary>
-        Protected = 3,
-
-        /// <summary>
-        /// internal
-        /// </summary>
-        Internal = 4,
-
-        /// <summary>
-        /// protected internal
-        /// </summary>
-        ProtectedInternal = 5,
-
-        /// <summary>
-        /// private protected
-        /// </summary>
-        PrivateProtected = 6
+        Private = 2
     }
 
     /// <summary>
@@ -65,14 +45,6 @@ namespace Panosen.CodeDom.Typescript
                     return "public";
                 case AccessModifiers.Private:
                     return "private";
-                case AccessModifiers.Protected:
-                    return "protected";
-                case AccessModifiers.Internal:
-                    return "internal";
-                case AccessModifiers.ProtectedInternal:
-                    return "protected internal";
-                case AccessModifiers.PrivateProtected:
-                    return "private protected";
                 case AccessModifiers.None:
                 default:
                     return string.Empty;

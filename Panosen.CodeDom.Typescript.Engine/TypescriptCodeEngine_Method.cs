@@ -66,7 +66,7 @@ namespace Panosen.CodeDom.Typescript.Engine
                 codeWriter.Write(Keywords.VOID);
             }
 
-            if (codeMethod.StepBuilders == null)
+            if (codeMethod.StepCollection == null)
             {
                 codeWriter.WriteLine(Marks.SEMICOLON);
                 return;
@@ -76,9 +76,9 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             options.PushIndent();
 
-            foreach (var stepBuilder in codeMethod.StepBuilders)
+            foreach (var stepBuilder in codeMethod.StepCollection)
             {
-                GenerateStepBuilderOrCollection(stepBuilder, codeWriter, options);
+                GenerateStepOrCollection(stepBuilder, codeWriter, options);
             }
 
             options.PopIndent();

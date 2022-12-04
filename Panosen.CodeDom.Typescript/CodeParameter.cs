@@ -22,6 +22,11 @@ namespace Panosen.CodeDom.Typescript
         public bool Optional { get; set; }
 
         /// <summary>
+        /// AccessModifiers
+        /// </summary>
+        public AccessModifiers AccessModifiers { get; set; }
+
+        /// <summary>
         /// 特性
         /// </summary>
         public List<CodeDecorator> AttributeList { get; set; }
