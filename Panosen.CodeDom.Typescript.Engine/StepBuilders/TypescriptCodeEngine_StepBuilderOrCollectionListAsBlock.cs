@@ -11,7 +11,7 @@ namespace Panosen.CodeDom.Typescript.Engine
     /// </summary>
     partial class TypescriptCodeEngine
     {
-        private void GenerateStepBuilderOrCollectionListAsBlock(List<StepBuilderOrCollection> stepBuilders, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateStepBuilderOrCollectionListAsBlock(List<StepOrCollection> stepBuilders, CodeWriter codeWriter, GenerateOptions options)
         {
             codeWriter.Write(options.IndentString).WriteLine(Marks.LEFT_BRACE);
             options.PushIndent();

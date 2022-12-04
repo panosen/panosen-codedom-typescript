@@ -9,17 +9,17 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// try
     /// </summary>
-    public class TryStepBuilder : StepBuilderCollection
+    public class TryStep : StepCollection
     {
         /// <summary>
         /// catch
         /// </summary>
-        public List<CatchStepBuilder> CatchStepBuilders { get; set; }
+        public List<CatchStep> CatchStepBuilders { get; set; }
 
         /// <summary>
         /// finally
         /// </summary>
-        public FinallyStepBuilder FinallyStepBuilder { get; set; }
+        public FinallyStep FinallyStepBuilder { get; set; }
     }
 
     /// <summary>
@@ -30,14 +30,14 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// catch(exceptionType, exceptionName)
         /// </summary>
-        public static CatchStepBuilder WithCatch(this TryStepBuilder tryStepBuilder, string exceptionType = null, string exceptionName = null)
+        public static CatchStep WithCatch(this TryStep tryStepBuilder, string exceptionType = null, string exceptionName = null)
         {
             if (tryStepBuilder.CatchStepBuilders == null)
             {
-                tryStepBuilder.CatchStepBuilders = new List<CatchStepBuilder>();
+                tryStepBuilder.CatchStepBuilders = new List<CatchStep>();
             }
 
-            CatchStepBuilder catchStepBuilder = new CatchStepBuilder();
+            CatchStep catchStepBuilder = new CatchStep();
             catchStepBuilder.ExceptionType = exceptionType;
             catchStepBuilder.ExceptionName = exceptionName;
             tryStepBuilder.CatchStepBuilders.Add(catchStepBuilder);
@@ -48,9 +48,9 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// finally
         /// </summary>
-        public static FinallyStepBuilder WithFinally(this TryStepBuilder tryStepBuilder)
+        public static FinallyStep WithFinally(this TryStep tryStepBuilder)
         {
-            FinallyStepBuilder finallyStepBuilder = new FinallyStepBuilder();
+            FinallyStep finallyStepBuilder = new FinallyStep();
 
             tryStepBuilder.FinallyStepBuilder = finallyStepBuilder;
 

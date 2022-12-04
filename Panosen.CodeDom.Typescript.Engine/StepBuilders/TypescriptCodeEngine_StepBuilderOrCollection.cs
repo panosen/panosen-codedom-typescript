@@ -14,75 +14,75 @@ namespace Panosen.CodeDom.Typescript.Engine
         /// <param name="stepBuilder"></param>
         /// <param name="codeWriter"></param>
         /// <param name="options"></param>
-        public void GenerateStepBuilderOrCollection(StepBuilderOrCollection stepBuilder, CodeWriter codeWriter, GenerateOptions options = null)
+        public void GenerateStepBuilderOrCollection(StepOrCollection stepBuilder, CodeWriter codeWriter, GenerateOptions options = null)
         {
             if (stepBuilder == null) { return; }
             if (codeWriter == null) { return; }
             options = options ?? new GenerateOptions();
 
-            if (stepBuilder is EmptyStepBuilder)
+            if (stepBuilder is EmptyStep)
             {
                 codeWriter.WriteLine();
             }
 
-            if (stepBuilder is StatementStepBuilder)
+            if (stepBuilder is StatementStep)
             {
-                GenerateStatementStepBuilder(stepBuilder as StatementStepBuilder, codeWriter, options);
+                GenerateStatementStepBuilder(stepBuilder as StatementStep, codeWriter, options);
             }
 
-            if (stepBuilder is UsingStepBuilder)
+            if (stepBuilder is UsingStep)
             {
-                GenerateUsingStepBuilder(stepBuilder as UsingStepBuilder, codeWriter, options);
+                GenerateUsingStepBuilder(stepBuilder as UsingStep, codeWriter, options);
             }
 
-            if (stepBuilder is IfStepBuilder)
+            if (stepBuilder is IfStep)
             {
-                GenerateIfStepBuilder(stepBuilder as IfStepBuilder, codeWriter, options);
+                GenerateIfStepBuilder(stepBuilder as IfStep, codeWriter, options);
             }
 
-            if (stepBuilder is WhileStepBuilder)
+            if (stepBuilder is WhileStep)
             {
-                GenerateWhileStepBuilder(stepBuilder as WhileStepBuilder, codeWriter, options);
+                GenerateWhileStepBuilder(stepBuilder as WhileStep, codeWriter, options);
             }
 
-            if (stepBuilder is TryStepBuilder)
+            if (stepBuilder is TryStep)
             {
-                GenerateTryStepBuilder(stepBuilder as TryStepBuilder, codeWriter, options);
+                GenerateTryStepBuilder(stepBuilder as TryStep, codeWriter, options);
             }
 
-            if (stepBuilder is SwitchStepBuilder)
+            if (stepBuilder is SwitchStep)
             {
-                GenerateSwitchStepBuilder(stepBuilder as SwitchStepBuilder, codeWriter, options);
+                GenerateSwitchStepBuilder(stepBuilder as SwitchStep, codeWriter, options);
             }
 
-            if (stepBuilder is ForeachStepBuilder)
+            if (stepBuilder is ForeachStep)
             {
-                GenerateForeachStepBuilder(stepBuilder as ForeachStepBuilder, codeWriter, options);
+                GenerateForeachStepBuilder(stepBuilder as ForeachStep, codeWriter, options);
             }
 
-            if (stepBuilder is ForStepBuilder)
+            if (stepBuilder is ForStep)
             {
-                GenerateForStepBuilder(stepBuilder as ForStepBuilder, codeWriter, options);
+                GenerateForStepBuilder(stepBuilder as ForStep, codeWriter, options);
             }
 
-            if (stepBuilder is BlockStepBuilder)
+            if (stepBuilder is BlockStep)
             {
-                GenerateBlockStepBuilder(stepBuilder as BlockStepBuilder, codeWriter, options);
+                GenerateBlockStepBuilder(stepBuilder as BlockStep, codeWriter, options);
             }
 
-            if (stepBuilder is PushIndentStepBuilder)
+            if (stepBuilder is PushIndentStep)
             {
-                GeneratePushIndentStepBuilder(stepBuilder as PushIndentStepBuilder, codeWriter, options);
+                GeneratePushIndentStepBuilder(stepBuilder as PushIndentStep, codeWriter, options);
             }
 
-            if (stepBuilder is StatementChainStepBuilder)
+            if (stepBuilder is StatementChainStep)
             {
-                GenerateStatementChainStepBuilder(stepBuilder as StatementChainStepBuilder, codeWriter, options);
+                GenerateStatementChainStepBuilder(stepBuilder as StatementChainStep, codeWriter, options);
             }
 
-            if (stepBuilder is AssignmentStepBuilder)
+            if (stepBuilder is AssignmentStep)
             {
-                GenerateAssignmentStepBuilder(stepBuilder as AssignmentStepBuilder, codeWriter, options);
+                GenerateAssignmentStepBuilder(stepBuilder as AssignmentStep, codeWriter, options);
             }
         }
     }

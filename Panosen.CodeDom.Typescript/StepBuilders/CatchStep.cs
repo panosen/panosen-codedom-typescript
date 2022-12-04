@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 namespace Panosen.CodeDom.Typescript
 {
     /// <summary>
-    /// WhileStepBuilder
+    /// catch
     /// </summary>
-    public class WhileStepBuilder : StepBuilderCollection
+    public class CatchStep : StepCollection
     {
         /// <summary>
-        /// Condition
+        /// Exception
         /// </summary>
-        public string Condition { get; set; }
+        public string ExceptionType { get; set; }
+
+        /// <summary>
+        /// e
+        /// </summary>
+        public string ExceptionName { get; set; }
     }
 }

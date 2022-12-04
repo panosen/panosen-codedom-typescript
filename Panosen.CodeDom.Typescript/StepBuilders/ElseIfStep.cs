@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace Panosen.CodeDom.Typescript
 {
     /// <summary>
-    /// StatementStepBuilder
+    /// ElseIfStepBuilder
     /// </summary>
-    public class StatementStepBuilder : StepBuilder
+    public class ElseIfStep : StepCollection
     {
         /// <summary>
-        /// Statement
+        /// Condition
         /// </summary>
-        public string Statement { get; set; }
+        public string Condition { get; set; }
     }
 }

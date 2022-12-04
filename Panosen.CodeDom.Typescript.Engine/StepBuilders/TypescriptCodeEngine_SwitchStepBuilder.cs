@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateSwitchStepBuilder(SwitchStepBuilder switchStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateSwitchStepBuilder(SwitchStep switchStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             // switch (${expression})
             codeWriter.Write(options.IndentString).Write(Keywords.SWITCH).Write(Marks.WHITESPACE)

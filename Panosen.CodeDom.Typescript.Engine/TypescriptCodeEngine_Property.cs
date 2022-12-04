@@ -119,7 +119,7 @@ namespace Panosen.CodeDom.Typescript.Engine
             codeWriter.Write(options.IndentString).WriteLine(Marks.RIGHT_BRACE);
         }
 
-        private void GenerateCustomizedPropertyStepBuilders(CodeWriter codeWriter, string keywords, StepBuilderCollection stepBuilderCollection, GenerateOptions options)
+        private void GenerateCustomizedPropertyStepBuilders(CodeWriter codeWriter, string keywords, StepCollection stepBuilderCollection, GenerateOptions options)
         {
             if (stepBuilderCollection == null || stepBuilderCollection.StepBuilders == null || stepBuilderCollection.StepBuilders.Count == 0)
             {
@@ -127,13 +127,13 @@ namespace Panosen.CodeDom.Typescript.Engine
             }
 
             //如果只有一行语句，则使用单行模式
-            if (stepBuilderCollection.StepBuilders.Count == 1 && stepBuilderCollection.StepBuilders.First() is StatementStepBuilder)
+            if (stepBuilderCollection.StepBuilders.Count == 1 && stepBuilderCollection.StepBuilders.First() is StatementStep)
             {
                 codeWriter.Write(options.IndentString).Write(keywords);
 
                 codeWriter.Write(Marks.WHITESPACE).Write(Marks.LEFT_BRACE).Write(Marks.WHITESPACE);
 
-                codeWriter.Write((stepBuilderCollection.StepBuilders.First() as StatementStepBuilder).Statement);
+                codeWriter.Write((stepBuilderCollection.StepBuilders.First() as StatementStep).Statement);
 
                 codeWriter.Write(Marks.WHITESPACE).WriteLine(Marks.RIGHT_BRACE);
             }

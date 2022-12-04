@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// ${Parameter} => ${Expression}
     /// </summary>
-    public class CodeLamdaStepBuilderCollection : DataItem, IStepBuilderCollection
+    public class CodeLamdaStepBuilderCollection : DataItem, IStepCollection
     {
         /// <summary>
         /// 参数
@@ -21,7 +21,7 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 步骤
         /// </summary>
-        public List<StepBuilderOrCollection> StepBuilders { get; set; }
+        public List<StepOrCollection> StepBuilders { get; set; }
 
         #endregion
     }

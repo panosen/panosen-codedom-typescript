@@ -52,7 +52,7 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 构造函数
         /// </summary>
-        public List<CodeMethod> ConstructorList { get; set; }
+        public CodeMethod Constructor { get; set; }
 
         /// <summary>
         /// 该类实现的接口
@@ -85,6 +85,17 @@ namespace Panosen.CodeDom.Typescript
     /// </summary>
     public static class CodeClassExtension
     {
+        /// <summary>
+        /// 设置CodeClass名称
+        /// </summary>
+        public static TCodeClass SetName<TCodeClass>(this TCodeClass codeClass, string name)
+            where TCodeClass : CodeClass
+        {
+            codeClass.Name = name;
+
+            return codeClass;
+        }
+
         /// <summary>
         /// 添加特性
         /// </summary>
@@ -215,7 +226,8 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一批方法
         /// </summary>
-        public static TCodeClass AddMethods<TCodeClass>(this TCodeClass codeClass, List<CodeMethod> codeMethods) where TCodeClass : CodeClass
+        public static TCodeClass AddMethods<TCodeClass>(this TCodeClass codeClass, List<CodeMethod> codeMethods)
+            where TCodeClass : CodeClass
         {
             if (codeMethods == null || codeMethods.Count == 0)
             {
@@ -234,14 +246,10 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加构造函数
         /// </summary>
-        public static TCodeClass AddConstructor<TCodeClass>(this TCodeClass codeClass, CodeMethod codeMethod) where TCodeClass : CodeClass
+        public static TCodeClass AddConstructor<TCodeClass>(this TCodeClass codeClass, CodeMethod codeMethod)
+            where TCodeClass : CodeClass
         {
-            if (codeClass.ConstructorList == null)
-            {
-                codeClass.ConstructorList = new List<CodeMethod>();
-            }
-
-            codeClass.ConstructorList.Add(codeMethod);
+            codeClass.Constructor = codeMethod;
 
             return codeClass;
         }
@@ -251,14 +259,11 @@ namespace Panosen.CodeDom.Typescript
         /// </summary>
         public static CodeMethod AddConstructor(this CodeClass codeClass)
         {
-            if (codeClass.ConstructorList == null)
-            {
-                codeClass.ConstructorList = new List<CodeMethod>();
-            }
-
             CodeMethod codeMethod = new CodeMethod();
+            codeMethod.Name = "constructor";
+            codeMethod.StepBuilders = new List<StepOrCollection>();
 
-            codeClass.ConstructorList.Add(codeMethod);
+            codeClass.Constructor = codeMethod;
 
             return codeMethod;
         }

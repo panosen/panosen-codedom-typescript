@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// EmptyStepBuilder
     /// </summary>
-    public class EmptyStepBuilder : StepBuilder
+    public class EmptyStep : Step
     {
     }
 }

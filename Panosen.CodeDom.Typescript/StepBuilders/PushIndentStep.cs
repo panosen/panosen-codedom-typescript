@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 namespace Panosen.CodeDom.Typescript
 {
     /// <summary>
-    /// ElseStepBuilder
+    /// PushIndentStepBuilder
     /// </summary>
-    public class ElseStepBuilder : StepBuilderCollection
+    public class PushIndentStep : StepCollection
     {
+        /// <summary>
+        /// Key
+        /// </summary>
+        public string Key { get; set; }
     }
 }

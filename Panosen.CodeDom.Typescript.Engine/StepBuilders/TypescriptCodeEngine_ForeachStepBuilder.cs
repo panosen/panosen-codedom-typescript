@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateForeachStepBuilder(ForeachStepBuilder foreachStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateForeachStepBuilder(ForeachStep foreachStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             codeWriter.Write(options.IndentString).Write("Keywords.FOREACH").Write(Marks.WHITESPACE).Write(Marks.LEFT_BRACKET)
                 .Write(foreachStepBuilder.Type ?? Keywords.VAR).Write(Marks.WHITESPACE)

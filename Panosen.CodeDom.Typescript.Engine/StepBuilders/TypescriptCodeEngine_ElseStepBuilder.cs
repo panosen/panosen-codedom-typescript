@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateElseStepBuilder(ElseStepBuilder elseStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateElseStepBuilder(ElseStep elseStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             if (elseStepBuilder == null) { return; }
             if (codeWriter == null) { return; }

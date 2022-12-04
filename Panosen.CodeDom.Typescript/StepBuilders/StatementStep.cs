@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 namespace Panosen.CodeDom.Typescript
 {
     /// <summary>
-    /// StepBuilder 或 StepBuilderCollection
+    /// StatementStepBuilder
     /// </summary>
-    public abstract class StepBuilderOrCollection
+    public class StatementStep : Step
     {
+        /// <summary>
+        /// Statement
+        /// </summary>
+        public string Statement { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 步骤集合
         /// </summary>
-        public StepBuilderCollection StepBuilderCollection { get; set; }
+        public StepCollection StepBuilderCollection { get; set; }
 
         /// <summary>
         /// Statements

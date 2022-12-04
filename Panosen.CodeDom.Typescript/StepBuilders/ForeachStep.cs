@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 namespace Panosen.CodeDom.Typescript
 {
     /// <summary>
-    /// ForStepBuilder
+    /// ForeachStepBuilder
     /// </summary>
-    public class ForStepBuilder : StepBuilderCollection
+    public class ForeachStep : StepCollection
     {
         /// <summary>
-        /// Start
+        /// Type
         /// </summary>
-        public string Start { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
-        /// Middle
+        /// Item
         /// </summary>
-        public string Middle { get; set; }
+        public string Item { get; set; }
 
         /// <summary>
-        /// End
+        /// Items
         /// </summary>
-        public string End { get; set; }
+        public string Items { get; set; }
     }
 }

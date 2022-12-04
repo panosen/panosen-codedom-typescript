@@ -42,7 +42,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
             CodeMethod codeMethod = new CodeMethod();
             codeMethod.Name = "theCon";
 
-            codeMethod.StepBuilders = new List<StepBuilderOrCollection>();
+            codeMethod.StepBuilders = new List<StepOrCollection>();
 
             return codeMethod;
         }
@@ -52,7 +52,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
             CodeMethod codeMethod = new CodeMethod();
             codeMethod.Name = "calc";
 
-            codeMethod.StepBuilders = new List<StepBuilderOrCollection>();
+            codeMethod.StepBuilders = new List<StepOrCollection>();
 
             return codeMethod;
         }

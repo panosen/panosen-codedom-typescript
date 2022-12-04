@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Panosen.CodeDom.Typescript
 {
     /// <summary>
-    /// finally
+    /// 单个步骤
     /// </summary>
-    public class FinallyStepBuilder : StepBuilderCollection
+    public abstract class Step : StepOrCollection
     {
     }
 }

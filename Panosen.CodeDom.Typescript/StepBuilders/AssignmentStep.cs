@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// 赋值
     /// </summary>
-    public class AssignmentStepBuilder : StepBuilder
+    public class AssignmentStep : Step
     {
         /// <summary>
         /// 等号左边的变量
@@ -31,7 +31,7 @@ namespace Panosen.CodeDom.Typescript
         /// 设置等号左边的变量
         /// </summary>
         public static TAssignmentStepBuilder SetLeft<TAssignmentStepBuilder>(this TAssignmentStepBuilder assignVariableStepBuilder, string left)
-            where TAssignmentStepBuilder : AssignmentStepBuilder
+            where TAssignmentStepBuilder : AssignmentStep
         {
             assignVariableStepBuilder.Left = left;
 
@@ -42,7 +42,7 @@ namespace Panosen.CodeDom.Typescript
         /// 设置等号右边的变量
         /// </summary>
         public static TAssignmentStepBuilder SetRight<TAssignmentStepBuilder>(this TAssignmentStepBuilder assignVariableStepBuilder, string right)
-            where TAssignmentStepBuilder : AssignmentStepBuilder
+            where TAssignmentStepBuilder : AssignmentStep
         {
             assignVariableStepBuilder.Left = right;
 
@@ -53,7 +53,7 @@ namespace Panosen.CodeDom.Typescript
         /// 设置等号右边的值
         /// </summary>
         public static TAssignmentStepBuilder SetRight<TAssignmentStepBuilder>(this TAssignmentStepBuilder assignmentStepBuilder, CodeExpression codeExpression)
-            where TAssignmentStepBuilder : AssignmentStepBuilder
+            where TAssignmentStepBuilder : AssignmentStep
         {
             assignmentStepBuilder.Right = codeExpression;
 
@@ -63,7 +63,7 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 设置等号右边的值
         /// </summary>
-        private static TCodeExpression SetRight<TCodeExpression>(this AssignmentStepBuilder assignmentStepBuilder)
+        private static TCodeExpression SetRight<TCodeExpression>(this AssignmentStep assignmentStepBuilder)
             where TCodeExpression : CodeExpression, new()
         {
             TCodeExpression codeExpression = new TCodeExpression();
@@ -77,7 +77,7 @@ namespace Panosen.CodeDom.Typescript
         /// 设置等号右边的值
         /// </summary>
         public static ReferenceExpression SetRightOfReferenceExpression<TAssignmentStepBuilder>(this TAssignmentStepBuilder assignmentStepBuilder)
-            where TAssignmentStepBuilder : AssignmentStepBuilder
+            where TAssignmentStepBuilder : AssignmentStep
         {
             return SetRight<ReferenceExpression>(assignmentStepBuilder);
         }
@@ -86,7 +86,7 @@ namespace Panosen.CodeDom.Typescript
         /// 设置等号右边的值
         /// </summary>
         public static CallMethodExpression SetRightOfCallMethodExpression<TAssignmentStepBuilder>(this TAssignmentStepBuilder assignmentStepBuilder, string methodName = null)
-            where TAssignmentStepBuilder : AssignmentStepBuilder
+            where TAssignmentStepBuilder : AssignmentStep
         {
             return SetRight<CallMethodExpression>(assignmentStepBuilder).SetMethodName(methodName);
         }

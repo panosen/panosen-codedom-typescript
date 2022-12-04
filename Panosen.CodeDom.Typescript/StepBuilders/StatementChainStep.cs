@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// 调用方法
     /// </summary>
-    public class StatementChainStepBuilder : StepBuilder
+    public class StatementChainStep : Step
     {
         /// <summary>
         /// ${Target}.MethodA().MethodB();
@@ -31,7 +31,7 @@ namespace Panosen.CodeDom.Typescript
         /// 添加一个方法表达式
         /// </summary>
         public static TCallMethodStepBuilder SetTarget<TCallMethodStepBuilder>(this TCallMethodStepBuilder callMethodStepBuilder, string target)
-            where TCallMethodStepBuilder : StatementChainStepBuilder
+            where TCallMethodStepBuilder : StatementChainStep
         {
             callMethodStepBuilder.Target = target;
 
@@ -41,7 +41,7 @@ namespace Panosen.CodeDom.Typescript
         /// 添加一个方法表达式
         /// </summary>
         public static TCallMethodStepBuilder AddCallMethodExpression<TCallMethodStepBuilder>(this TCallMethodStepBuilder callMethodStepBuilder, CallMethodExpression callMethodExpression)
-            where TCallMethodStepBuilder : StatementChainStepBuilder
+            where TCallMethodStepBuilder : StatementChainStep
         {
             if (callMethodStepBuilder.CallMethodExpressions == null)
             {
@@ -57,7 +57,7 @@ namespace Panosen.CodeDom.Typescript
         /// 添加一个方法表达式
         /// </summary>
         public static CallMethodExpression AddCallMethodExpression<TCallMethodStepBuilder>(this TCallMethodStepBuilder callMethodStepBuilder, string methodName, bool startFromNewLine = false)
-            where TCallMethodStepBuilder : StatementChainStepBuilder
+            where TCallMethodStepBuilder : StatementChainStep
         {
             if (callMethodStepBuilder.CallMethodExpressions == null)
             {
@@ -77,7 +77,7 @@ namespace Panosen.CodeDom.Typescript
         /// 添加一批方法表达式
         /// </summary>
         public static TCallMethodStepBuilder AddCallMethodExpressions<TCallMethodStepBuilder>(this TCallMethodStepBuilder callMethodStepBuilder, List<CallMethodExpression> callMethodExpressions)
-            where TCallMethodStepBuilder : StatementChainStepBuilder
+            where TCallMethodStepBuilder : StatementChainStep
         {
             if (callMethodExpressions == null || callMethodExpressions.Count == 0)
             {

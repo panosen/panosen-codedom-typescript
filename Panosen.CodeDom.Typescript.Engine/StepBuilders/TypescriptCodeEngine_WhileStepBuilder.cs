@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateWhileStepBuilder(WhileStepBuilder whileStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateWhileStepBuilder(WhileStep whileStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             if (whileStepBuilder == null) { return; }
             if (codeWriter == null) { return; }

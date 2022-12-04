@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// UsingStepBuilder
     /// </summary>
-    public class UsingStepBuilder : StepBuilderCollection
+    public class UsingStep : StepCollection
     {
         /// <summary>
         /// Content
@@ -30,7 +30,7 @@ namespace Panosen.CodeDom.Typescript
         /// <param name="content"></param>
         /// <returns></returns>
         public static TUsingStepBuilder Use<TUsingStepBuilder>(this TUsingStepBuilder usingStepBuilder, string content)
-            where TUsingStepBuilder : UsingStepBuilder
+            where TUsingStepBuilder : UsingStep
         {
             usingStepBuilder.Content = content;
 

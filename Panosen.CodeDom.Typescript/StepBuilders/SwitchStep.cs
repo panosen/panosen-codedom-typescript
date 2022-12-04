@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// switch
     /// </summary>
-    public class SwitchStepBuilder : StepBuilder
+    public class SwitchStep : Step
     {
         /// <summary>
         /// expression
@@ -19,12 +19,12 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// cases
         /// </summary>
-        public List<SwitchStepBuilderCase> ConditionList { get; set; }
+        public List<SwitchStepCase> ConditionList { get; set; }
 
         /// <summary>
         /// default
         /// </summary>
-        public StepBuilderCollection DefaultStepBuilders { get; set; }
+        public StepCollection DefaultStepBuilders { get; set; }
     }
 
     /// <summary>
@@ -35,12 +35,12 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// WithElseIf
         /// </summary>
-        public static TSwitchStepBuilder WithCase<TSwitchStepBuilder>(this TSwitchStepBuilder switchStepBuilder, SwitchStepBuilderCase switchStepBuilderCase)
-            where TSwitchStepBuilder : SwitchStepBuilder
+        public static TSwitchStepBuilder WithCase<TSwitchStepBuilder>(this TSwitchStepBuilder switchStepBuilder, SwitchStepCase switchStepBuilderCase)
+            where TSwitchStepBuilder : SwitchStep
         {
             if (switchStepBuilder.ConditionList == null)
             {
-                switchStepBuilder.ConditionList = new List<SwitchStepBuilderCase>();
+                switchStepBuilder.ConditionList = new List<SwitchStepCase>();
             }
 
             switchStepBuilder.ConditionList.Add(switchStepBuilderCase);
@@ -51,14 +51,14 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// WithElseIf
         /// </summary>
-        public static SwitchStepBuilderCase WithCase(this SwitchStepBuilder switchStepBuilder, DataKey conditonExpression)
+        public static SwitchStepCase WithCase(this SwitchStep switchStepBuilder, DataKey conditonExpression)
         {
             if (switchStepBuilder.ConditionList == null)
             {
-                switchStepBuilder.ConditionList = new List<SwitchStepBuilderCase>();
+                switchStepBuilder.ConditionList = new List<SwitchStepCase>();
             }
 
-            SwitchStepBuilderCase switchStepBuilderCase = new SwitchStepBuilderCase();
+            SwitchStepCase switchStepBuilderCase = new SwitchStepCase();
             switchStepBuilderCase.ConditionExpression = conditonExpression;
 
             switchStepBuilder.ConditionList.Add(switchStepBuilderCase);
@@ -68,8 +68,8 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// WithBreak
         /// </summary>
-        public static TSwitchStepBuilder WithDefault<TSwitchStepBuilder>(this TSwitchStepBuilder switchStepBuilder, StepBuilderCollection stepBuilderCollection)
-            where TSwitchStepBuilder : SwitchStepBuilder
+        public static TSwitchStepBuilder WithDefault<TSwitchStepBuilder>(this TSwitchStepBuilder switchStepBuilder, StepCollection stepBuilderCollection)
+            where TSwitchStepBuilder : SwitchStep
         {
             switchStepBuilder.DefaultStepBuilders = stepBuilderCollection;
 
@@ -79,9 +79,9 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// WithDefault
         /// </summary>
-        public static StepBuilderCollection WithDefault(this SwitchStepBuilder switchStepBuilder)
+        public static StepCollection WithDefault(this SwitchStep switchStepBuilder)
         {
-            StepBuilderCollection stepBuilderCollection = new StepBuilderCollection();
+            StepCollection stepBuilderCollection = new StepCollection();
 
             switchStepBuilder.DefaultStepBuilders = stepBuilderCollection;
 

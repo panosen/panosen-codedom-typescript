@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateBlockStepBuilder(BlockStepBuilder blockStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateBlockStepBuilder(BlockStep blockStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             codeWriter.Write(options.IndentString).WriteLine(Marks.LEFT_BRACE);
             options.PushIndent();

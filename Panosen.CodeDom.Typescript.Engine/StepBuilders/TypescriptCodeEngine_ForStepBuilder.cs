@@ -8,7 +8,7 @@ namespace Panosen.CodeDom.Typescript.Engine
 {
     partial class TypescriptCodeEngine
     {
-        private void GenerateForStepBuilder(ForStepBuilder forStepBuilder, CodeWriter codeWriter, GenerateOptions options)
+        private void GenerateForStepBuilder(ForStep forStepBuilder, CodeWriter codeWriter, GenerateOptions options)
         {
             codeWriter.Write(options.IndentString).Write(Keywords.FOR).Write(Marks.WHITESPACE).Write(Marks.LEFT_BRACKET)
                 .Write(forStepBuilder.Start ?? string.Empty).Write(Marks.SEMICOLON).Write(Marks.WHITESPACE)

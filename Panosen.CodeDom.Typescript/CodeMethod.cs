@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// 方法
     /// </summary>
-    public class CodeMethod : DataItem, IStepBuilderCollection
+    public class CodeMethod : DataItem, IStepCollection
     {
         /// <summary>
         /// 名称
@@ -61,7 +61,7 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// IStepBuilderCollection.StepBuilders
         /// </summary>
-        public List<StepBuilderOrCollection> StepBuilders { get; set; }
+        public List<StepOrCollection> StepBuilders { get; set; }
 
         #endregion
     }

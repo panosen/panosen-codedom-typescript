@@ -49,12 +49,12 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// get 访问器
         /// </summary>
-        public StepBuilderCollection GetStepBuilderCollection { get; set; }
+        public StepCollection GetStepBuilderCollection { get; set; }
 
         /// <summary>
         /// set 访问器包含的步骤
         /// </summary>
-        public StepBuilderCollection SetStepBuilderCollection { get; set; }
+        public StepCollection SetStepBuilderCollection { get; set; }
     }
 
     /// <summary>
@@ -150,7 +150,7 @@ namespace Panosen.CodeDom.Typescript
         /// <param name="codeProperty"></param>
         /// <param name="stepBuilderCollection"></param>
         /// <returns></returns>
-        public static TCodeProperty AddGetStepBuilderCollection<TCodeProperty>(this TCodeProperty codeProperty, StepBuilderCollection stepBuilderCollection) where TCodeProperty : CodeProperty
+        public static TCodeProperty AddGetStepBuilderCollection<TCodeProperty>(this TCodeProperty codeProperty, StepCollection stepBuilderCollection) where TCodeProperty : CodeProperty
         {
             codeProperty.GetStepBuilderCollection = stepBuilderCollection;
 
@@ -162,9 +162,9 @@ namespace Panosen.CodeDom.Typescript
         /// </summary>
         /// <param name="codeProperty"></param>
         /// <returns></returns>
-        public static StepBuilderCollection AddGetStepBuilderCollection(this CodeProperty codeProperty)
+        public static StepCollection AddGetStepBuilderCollection(this CodeProperty codeProperty)
         {
-            StepBuilderCollection stepBuilderCollection = new StepBuilderCollection();
+            StepCollection stepBuilderCollection = new StepCollection();
 
             codeProperty.GetStepBuilderCollection = stepBuilderCollection;
 
@@ -178,7 +178,7 @@ namespace Panosen.CodeDom.Typescript
         /// <param name="codeProperty"></param>
         /// <param name="stepBuilderCollection"></param>
         /// <returns></returns>
-        public static TCodeProperty AddSetStepBuilderCollection<TCodeProperty>(this TCodeProperty codeProperty, StepBuilderCollection stepBuilderCollection) where TCodeProperty : CodeProperty
+        public static TCodeProperty AddSetStepBuilderCollection<TCodeProperty>(this TCodeProperty codeProperty, StepCollection stepBuilderCollection) where TCodeProperty : CodeProperty
         {
             codeProperty.SetStepBuilderCollection = stepBuilderCollection;
 
@@ -190,9 +190,9 @@ namespace Panosen.CodeDom.Typescript
         /// </summary>
         /// <param name="codeProperty"></param>
         /// <returns></returns>
-        public static StepBuilderCollection AddSetStepBuilderCollection(this CodeProperty codeProperty)
+        public static StepCollection AddSetStepBuilderCollection(this CodeProperty codeProperty)
         {
-            StepBuilderCollection stepBuilderCollection = new StepBuilderCollection();
+            StepCollection stepBuilderCollection = new StepCollection();
 
             codeProperty.SetStepBuilderCollection = stepBuilderCollection;
 

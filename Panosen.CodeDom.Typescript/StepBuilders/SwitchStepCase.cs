@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// SwitchStepBuilderCondition
     /// </summary>
-    public class SwitchStepBuilderCase : StepBuilderCollection
+    public class SwitchStepCase : StepCollection
     {
         /// <summary>
         /// case 后面跟的语句
@@ -31,7 +31,7 @@ namespace Panosen.CodeDom.Typescript
         /// LinkToNext
         /// </summary>
         public static TSwitchStepBuilderCase SetConditionExpression<TSwitchStepBuilderCase>(this TSwitchStepBuilderCase switchStepBuilderCase, DataKey conditionExpression)
-            where TSwitchStepBuilderCase : SwitchStepBuilderCase
+            where TSwitchStepBuilderCase : SwitchStepCase
         {
             switchStepBuilderCase.ConditionExpression = conditionExpression;
 
@@ -42,7 +42,7 @@ namespace Panosen.CodeDom.Typescript
         /// LinkToNext
         /// </summary>
         public static TSwitchStepBuilderCase SetLinkToNext<TSwitchStepBuilderCase>(this TSwitchStepBuilderCase switchStepBuilderCase, bool linkToNext)
-            where TSwitchStepBuilderCase : SwitchStepBuilderCase
+            where TSwitchStepBuilderCase : SwitchStepCase
         {
             switchStepBuilderCase.LinkToNext = linkToNext;
 

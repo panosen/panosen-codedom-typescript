@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 namespace Panosen.CodeDom.Typescript
 {
     /// <summary>
-    /// BlockStepBuilder
+    /// WhileStepBuilder
     /// </summary>
-    public class BlockStepBuilder : StepBuilderCollection
+    public class WhileStep : StepCollection
     {
-
+        /// <summary>
+        /// Condition
+        /// </summary>
+        public string Condition { get; set; }
     }
 }

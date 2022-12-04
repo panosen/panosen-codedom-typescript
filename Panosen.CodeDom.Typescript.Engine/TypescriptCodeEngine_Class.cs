@@ -108,13 +108,10 @@ namespace Panosen.CodeDom.Typescript.Engine
                 }
             }
 
-            if (codeClass.ConstructorList != null && codeClass.ConstructorList.Count > 0)
+            if (codeClass.Constructor != null)
             {
-                foreach (var codeConstructor in codeClass.ConstructorList)
-                {
-                    codeWriter.WriteLine();
-                    GenerateMethod(codeConstructor, codeWriter, options);
-                }
+                codeWriter.WriteLine();
+                GenerateMethod(codeClass.Constructor, codeWriter, options);
             }
 
             if (codeClass.MethodList != null && codeClass.MethodList.Count > 0)

@@ -10,25 +10,25 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// 实现此接口的
     /// </summary>
-    public interface IStepBuilderCollection
+    public interface IStepCollection
     {
         /// <summary>
         /// StepBuilders
         /// </summary>
-        List<StepBuilderOrCollection> StepBuilders { get; set; }
+        List<StepOrCollection> StepBuilders { get; set; }
     }
 
     /// <summary>
     /// 一批语句
     /// </summary>
-    public class StepBuilderCollection : StepBuilderOrCollection, IStepBuilderCollection
+    public class StepCollection : StepOrCollection, IStepCollection
     {
         #region IStepBuilderCollection Members
 
         /// <summary>
         /// IStepBuilderCollection.StepBuilders
         /// </summary>
-        public List<StepBuilderOrCollection> StepBuilders { get; set; }
+        public List<StepOrCollection> StepBuilders { get; set; }
 
         #endregion
     }
@@ -41,12 +41,12 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个步骤
         /// </summary>
-        public static TStepBuilderCollection Step<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, StepBuilder stepBuilder)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static TStepBuilderCollection Step<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, Step stepBuilder)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
             stepBuilderCollection.StepBuilders.Add(stepBuilder);
@@ -58,14 +58,14 @@ namespace Panosen.CodeDom.Typescript
         /// 添加一个空行
         /// </summary>
         public static TStepBuilderCollection StepEmpty<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection)
-            where TStepBuilderCollection : IStepBuilderCollection
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            stepBuilderCollection.StepBuilders.Add(new EmptyStepBuilder());
+            stepBuilderCollection.StepBuilders.Add(new EmptyStep());
 
             return stepBuilderCollection;
         }
@@ -74,14 +74,14 @@ namespace Panosen.CodeDom.Typescript
         /// 添加一个步骤
         /// </summary>
         public static TStepBuilderCollection StepStatement<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string statement)
-            where TStepBuilderCollection : IStepBuilderCollection
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            StatementStepBuilder statementStepBuilder = new StatementStepBuilder();
+            StatementStep statementStepBuilder = new StatementStep();
             statementStepBuilder.Statement = statement;
             stepBuilderCollection.StepBuilders.Add(statementStepBuilder);
 
@@ -91,15 +91,15 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个 using 块
         /// </summary>
-        public static UsingStepBuilder StepUsing<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string content = null)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static UsingStep StepUsing<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string content = null)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            UsingStepBuilder usingStepBuilder = new UsingStepBuilder();
+            UsingStep usingStepBuilder = new UsingStep();
             usingStepBuilder.Content = content;
 
             stepBuilderCollection.StepBuilders.Add(usingStepBuilder);
@@ -110,15 +110,15 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个 if 块
         /// </summary>
-        public static IfStepBuilder StepIf<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string condition = null)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static IfStep StepIf<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string condition = null)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            IfStepBuilder ifStepBuilder = new IfStepBuilder();
+            IfStep ifStepBuilder = new IfStep();
             ifStepBuilder.Condition = condition;
 
             stepBuilderCollection.StepBuilders.Add(ifStepBuilder);
@@ -129,15 +129,15 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个 if 块
         /// </summary>
-        public static WhileStepBuilder StepWhile<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string condition = null)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static WhileStep StepWhile<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string condition = null)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            WhileStepBuilder whileStepBuilder = new WhileStepBuilder();
+            WhileStep whileStepBuilder = new WhileStep();
             whileStepBuilder.Condition = condition;
 
             stepBuilderCollection.StepBuilders.Add(whileStepBuilder);
@@ -148,15 +148,15 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// switch语句块
         /// </summary>
-        public static SwitchStepBuilder StepSwitch<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string expression = null)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static SwitchStep StepSwitch<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string expression = null)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            SwitchStepBuilder switchStepBuilder = new SwitchStepBuilder();
+            SwitchStep switchStepBuilder = new SwitchStep();
             switchStepBuilder.Expression = expression;
 
             stepBuilderCollection.StepBuilders.Add(switchStepBuilder);
@@ -167,15 +167,15 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个 try 块
         /// </summary>
-        public static TryStepBuilder StepTry<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static TryStep StepTry<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            TryStepBuilder ifStepBuilder = new TryStepBuilder();
+            TryStep ifStepBuilder = new TryStep();
 
             stepBuilderCollection.StepBuilders.Add(ifStepBuilder);
 
@@ -185,12 +185,12 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个 foreach 块
         /// </summary>
-        public static ForeachStepBuilder StepForeach<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string item, string items)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static ForeachStep StepForeach<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string item, string items)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
             return StepForeach(stepBuilderCollection, null, item, items);
@@ -199,15 +199,15 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个 foreach 块
         /// </summary>
-        public static ForeachStepBuilder StepForeach<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string type, string item, string items)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static ForeachStep StepForeach<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string type, string item, string items)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            ForeachStepBuilder foreachStepBuilder = new ForeachStepBuilder();
+            ForeachStep foreachStepBuilder = new ForeachStep();
             foreachStepBuilder.Type = type;
             foreachStepBuilder.Item = item;
             foreachStepBuilder.Items = items;
@@ -220,15 +220,15 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个 for 块
         /// </summary>
-        public static ForStepBuilder StepFor<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string start, string middle, string end)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static ForStep StepFor<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string start, string middle, string end)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            ForStepBuilder forStepBuilder = new ForStepBuilder();
+            ForStep forStepBuilder = new ForStep();
             forStepBuilder.Start = start;
             forStepBuilder.Middle = middle;
             forStepBuilder.End = end;
@@ -241,15 +241,15 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个代码块
         /// </summary>
-        public static BlockStepBuilder StepBlock<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static BlockStep StepBlock<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            BlockStepBuilder blockStepBuilder = new BlockStepBuilder();
+            BlockStep blockStepBuilder = new BlockStep();
 
             stepBuilderCollection.StepBuilders.Add(blockStepBuilder);
 
@@ -259,15 +259,15 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个缩进块
         /// </summary>
-        public static PushIndentStepBuilder StepPushIndent<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string key)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static PushIndentStep StepPushIndent<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string key)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            PushIndentStepBuilder pushIndentStepBuilder = new PushIndentStepBuilder();
+            PushIndentStep pushIndentStepBuilder = new PushIndentStep();
             pushIndentStepBuilder.Key = key;
 
             stepBuilderCollection.StepBuilders.Add(pushIndentStepBuilder);
@@ -278,15 +278,15 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 调用方法
         /// </summary>
-        public static StatementChainStepBuilder StepStatementChain<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string target = null)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static StatementChainStep StepStatementChain<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection, string target = null)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            StatementChainStepBuilder statementChainStepBuilder = new StatementChainStepBuilder();
+            StatementChainStep statementChainStepBuilder = new StatementChainStep();
             statementChainStepBuilder.Target = target;
 
             stepBuilderCollection.StepBuilders.Add(statementChainStepBuilder);
@@ -297,15 +297,15 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 为变量赋值
         /// </summary>
-        public static AssignmentStepBuilder StepAssignment<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection)
-            where TStepBuilderCollection : IStepBuilderCollection
+        public static AssignmentStep StepAssignment<TStepBuilderCollection>(this TStepBuilderCollection stepBuilderCollection)
+            where TStepBuilderCollection : IStepCollection
         {
             if (stepBuilderCollection.StepBuilders == null)
             {
-                stepBuilderCollection.StepBuilders = new List<StepBuilderOrCollection>();
+                stepBuilderCollection.StepBuilders = new List<StepOrCollection>();
             }
 
-            AssignmentStepBuilder assignVariableStepBuilder = new AssignmentStepBuilder();
+            AssignmentStep assignVariableStepBuilder = new AssignmentStep();
 
             stepBuilderCollection.StepBuilders.Add(assignVariableStepBuilder);
 

@@ -9,7 +9,7 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// IfStepBuilder
     /// </summary>
-    public class IfStepBuilder : StepBuilderCollection
+    public class IfStep : StepCollection
     {
         /// <summary>
         /// Condition
@@ -19,12 +19,12 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// ElseIfStepBuilders
         /// </summary>
-        public List<ElseIfStepBuilder> ElseIfStepBuilders { get; set; }
+        public List<ElseIfStep> ElseIfStepBuilders { get; set; }
 
         /// <summary>
         /// ElseStepBuilder
         /// </summary>
-        public ElseStepBuilder ElseStepBuilder { get; set; }
+        public ElseStep ElseStepBuilder { get; set; }
     }
 
     /// <summary>
@@ -38,14 +38,14 @@ namespace Panosen.CodeDom.Typescript
         /// <param name="ifStepBuilder"></param>
         /// <param name="condition"></param>
         /// <returns></returns>
-        public static ElseIfStepBuilder WithElseIf(this IfStepBuilder ifStepBuilder, string condition)
+        public static ElseIfStep WithElseIf(this IfStep ifStepBuilder, string condition)
         {
             if (ifStepBuilder.ElseIfStepBuilders == null)
             {
-                ifStepBuilder.ElseIfStepBuilders = new List<ElseIfStepBuilder>();
+                ifStepBuilder.ElseIfStepBuilders = new List<ElseIfStep>();
             }
 
-            ElseIfStepBuilder elseIfStepBuilder = new ElseIfStepBuilder();
+            ElseIfStep elseIfStepBuilder = new ElseIfStep();
             elseIfStepBuilder.Condition = condition;
             ifStepBuilder.ElseIfStepBuilders.Add(elseIfStepBuilder);
 
@@ -57,9 +57,9 @@ namespace Panosen.CodeDom.Typescript
         /// </summary>
         /// <param name="ifStepBuilder"></param>
         /// <returns></returns>
-        public static ElseStepBuilder WithElse(this IfStepBuilder ifStepBuilder)
+        public static ElseStep WithElse(this IfStep ifStepBuilder)
         {
-            ElseStepBuilder elseStepBuilder = new ElseStepBuilder();
+            ElseStep elseStepBuilder = new ElseStep();
 
             ifStepBuilder.ElseStepBuilder = elseStepBuilder;
 
