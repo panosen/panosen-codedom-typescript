@@ -46,46 +46,6 @@ public class Student {
      */
     private Field3: string = ""333"";
 
-    /**
-     * 属性 0
-     */
-    public number Property0 { get; set; }
-
-    /**
-     * 属性 1
-     */
-    public Keywords.VIRTUAL number Property1 { get; set; }
-
-    /**
-     * 属性 2
-     */
-    public Keywords.OVERRIDE string Property2 { get; set; }
-
-    /**
-     * 属性 3
-     */
-    public number Property3 { get; set; } = 333;
-
-    /**
-     * 属性 4
-     */
-    public number Property4 { get; set; } = 444;
-
-    /**
-     * 属性 5
-     */
-    public string Property5 { get; set; } = ""555"";
-
-    public number age
-    {
-        get { return 1; }
-        set
-        {
-            //okok
-            this.xxx = 2;
-        }
-    }
-
     public TheConstructor(): void {
     }
 
@@ -118,27 +78,6 @@ public class Student {
             codeClass.Name = "Student";
             codeClass.Summary = "学生";
             codeClass.AccessModifiers = AccessModifiers.Public;
-
-            codeClass.PropertyList = new List<CodeProperty>();
-
-            {
-                codeClass.AddProperty("number", "Property0", summary: "属性 0");
-            }
-            {
-                codeClass.AddProperty("number", "Property1", summary: "属性 1", isVirtual: true);
-            }
-            {
-                codeClass.AddProperty("string", "Property2", summary: "属性 2", isOverride: true);
-            }
-            {
-                codeClass.AddProperty("number", "Property3", summary: "属性 3", value: (DataValue)333);
-            }
-            {
-                codeClass.AddProperty("number", "Property4", summary: "属性 4", value: (DataValue)"444");
-            }
-            {
-                codeClass.AddProperty("string", "Property5", summary: "属性 5", value: DataValue.DoubleQuotationString("555"));
-            }
 
             {
                 codeClass.AddField("string", "Field0", summary: "字段 0");
@@ -202,10 +141,6 @@ public class Student {
                 AccessModifiers = AccessModifiers.Public,
                 StepCollection = new StepCollection()
             });
-
-            var property1 = codeClass.AddProperty("number", "age");
-            property1.AddGetStepBuilderCollection().StepStatement("return 1;");
-            property1.AddSetStepBuilderCollection().StepStatement("//okok").StepStatement("this.xxx = 2;");
 
             return codeClass;
         }

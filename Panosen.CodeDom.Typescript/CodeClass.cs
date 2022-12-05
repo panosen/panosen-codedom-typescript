@@ -35,11 +35,6 @@ namespace Panosen.CodeDom.Typescript
         public AccessModifiers AccessModifiers { get; set; }
 
         /// <summary>
-        /// 属性
-        /// </summary>
-        public List<CodeProperty> PropertyList { get; set; }
-
-        /// <summary>
         /// 字段
         /// </summary>
         public List<CodeField> FieldList { get; set; }
@@ -315,52 +310,6 @@ namespace Panosen.CodeDom.Typescript
         }
 
         /// <summary>
-        /// 添加属性
-        /// </summary>
-        public static TCodeClass AddProperty<TCodeClass>(this TCodeClass codeClass, CodeProperty codeProperty) where TCodeClass : CodeClass
-        {
-            if (codeClass.PropertyList == null)
-            {
-                codeClass.PropertyList = new List<CodeProperty>();
-            }
-
-            codeClass.PropertyList.Add(codeProperty);
-
-            return codeClass;
-        }
-
-        /// <summary>
-        /// 添加属性
-        /// </summary>
-        public static CodeProperty AddProperty(this CodeClass codeClass, string type, string name,
-            DataItem value = null,
-            string summary = null,
-            bool isVirtual = false,
-            bool isOverride = false,
-            CodePropertyAccess codePropertyAccess = CodePropertyAccess.Default,
-            AccessModifiers accessModifiers = AccessModifiers.Public)
-        {
-            if (codeClass.PropertyList == null)
-            {
-                codeClass.PropertyList = new List<CodeProperty>();
-            }
-
-            CodeProperty codeProperty = new CodeProperty();
-            codeProperty.Name = name;
-            codeProperty.Type = type;
-            codeProperty.CodePropertyAccess = codePropertyAccess;
-            codeProperty.Summary = summary;
-            codeProperty.IsVirtual = isVirtual;
-            codeProperty.IsOverride = isOverride;
-            codeProperty.Value = value;
-            codeProperty.AccessModifiers = accessModifiers;
-
-            codeClass.PropertyList.Add(codeProperty);
-
-            return codeProperty;
-        }
-
-        /// <summary>
         /// 添加常量
         /// </summary>
         public static TCodeClass AddConstant<TCodeClass>(this TCodeClass codeClass, CodeConstant codeConstant) where TCodeClass : CodeClass
@@ -373,6 +322,29 @@ namespace Panosen.CodeDom.Typescript
             codeClass.ConstantList.Add(codeConstant);
 
             return codeClass;
+        }
+
+        /// <summary>
+        /// 添加常量
+        /// </summary>
+        public static CodeConstant AddConstant<TCodeClass>(this TCodeClass codeClass, string type, string name, string value, bool export = false, AccessModifiers accessModifiers = AccessModifiers.None)
+            where TCodeClass : CodeClass
+        {
+            if (codeClass.ConstantList == null)
+            {
+                codeClass.ConstantList = new List<CodeConstant>();
+            }
+
+            var codeConstant = new CodeConstant();
+            codeConstant.Type = type;
+            codeConstant.Name = name;
+            codeConstant.Value = value;
+            codeConstant.Export = export;
+            codeConstant.AccessModifiers = accessModifiers;
+
+            codeClass.ConstantList.Add(codeConstant);
+
+            return codeConstant;
         }
 
         /// <summary>

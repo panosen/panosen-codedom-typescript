@@ -22,8 +22,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
         protected override string PrepareExpected()
         {
             return @"TestMethod(): void {
-    services.AddAuth(Scheme).AddJwtBearer(OK,  =>
-    {
+    services.AddAuth(Scheme).AddJwtBearer(OK,  => {
         //ok
         x = 1;
     });

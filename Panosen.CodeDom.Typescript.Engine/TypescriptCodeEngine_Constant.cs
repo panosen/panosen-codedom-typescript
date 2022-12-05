@@ -11,9 +11,6 @@ namespace Panosen.CodeDom.Typescript.Engine
         /// <summary>
         /// GenerateConstant
         /// </summary>
-        /// <param name="codeConstant"></param>
-        /// <param name="codeWriter"></param>
-        /// <param name="options"></param>
         public void GenerateConstant(CodeConstant codeConstant, CodeWriter codeWriter, GenerateOptions options = null)
         {
             if (codeConstant == null) { return; }
@@ -26,6 +23,11 @@ namespace Panosen.CodeDom.Typescript.Engine
             if (codeConstant.AccessModifiers != AccessModifiers.None)
             {
                 codeWriter.Write(codeConstant.AccessModifiers.Value()).Write(Marks.WHITESPACE);
+            }
+
+            if (codeConstant.Export)
+            {
+                codeWriter.Write(Keywords.EXPORT).Write(Marks.WHITESPACE);
             }
 
             codeWriter.Write(Keywords.CONST).Write(Marks.WHITESPACE);

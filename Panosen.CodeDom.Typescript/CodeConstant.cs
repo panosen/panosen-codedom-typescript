@@ -12,6 +12,11 @@ namespace Panosen.CodeDom.Typescript
     public class CodeConstant : CodeObject
     {
         /// <summary>
+        /// 是否导出
+        /// </summary>
+        public bool Export { get; set; }
+
+        /// <summary>
         /// 访问修饰符
         /// </summary>
         public AccessModifiers AccessModifiers { get; set; }

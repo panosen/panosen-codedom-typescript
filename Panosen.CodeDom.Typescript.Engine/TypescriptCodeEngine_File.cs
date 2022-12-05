@@ -19,6 +19,16 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             GenerateImports(codeWriter, codeFile);
 
+            if (codeFile.ConstantList != null && codeFile.ConstantList.Count > 0)
+            {
+                foreach (var codeConstant in codeFile.ConstantList)
+                {
+                    GenerateConstant(codeConstant, codeWriter, options);
+                }
+
+                codeWriter.WriteLine();
+            }
+
             if (codeFile.ClassList != null && codeFile.ClassList.Count > 0)
             {
                 var enumerator = codeFile.ClassList.GetEnumerator();

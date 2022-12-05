@@ -18,15 +18,12 @@ namespace Panosen.CodeDom.Typescript.Engine
             options = options ?? new GenerateOptions();
 
             /*
-             x =>
-             {
+             x => {
                  //do
              }
              */
             codeWriter.Write(lamda.Parameter)
-                .Write(Marks.WHITESPACE).Write(Marks.EQUAL).WriteLine(Marks.GREATER_THAN);
-
-            codeWriter.Write(options.IndentString).WriteLine(Marks.LEFT_BRACE);
+                .Write(Marks.WHITESPACE).Write(Marks.EQUAL).Write(Marks.GREATER_THAN).Write(Marks.WHITESPACE).WriteLine(Marks.LEFT_BRACE);
             options.PushIndent();
 
             GenerateStepCollection(lamda.StepCollection, codeWriter, options);

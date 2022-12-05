@@ -19,20 +19,13 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
         protected override string PrepareExpected()
         {
             return @"TestMethod(): void {
-    if (1)
-    {
+    if (1) {
         ok
-    }
-    else if (b)
-    {
+    } else if (b) {
         333
-    }
-    else if (b2)
-    {
+    } else if (b2) {
         3343
-    }
-    else
-    {
+    } else {
         okok
     }
 }

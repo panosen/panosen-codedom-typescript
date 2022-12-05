@@ -99,15 +99,6 @@ namespace Panosen.CodeDom.Typescript.Engine
                 }
             }
 
-            if (codeClass.PropertyList != null && codeClass.PropertyList.Count > 0)
-            {
-                foreach (var codeProperty in codeClass.PropertyList)
-                {
-                    codeWriter.WriteLine();
-                    GenerateProperty(codeProperty, codeWriter, options);
-                }
-            }
-
             if (codeClass.Constructor != null)
             {
                 codeWriter.WriteLine();

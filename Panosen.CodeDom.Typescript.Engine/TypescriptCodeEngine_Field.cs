@@ -38,9 +38,12 @@ namespace Panosen.CodeDom.Typescript.Engine
                 codeWriter.Write(Marks.QUESTION);
             }
 
-            codeWriter.Write(Marks.COLON).Write(Marks.WHITESPACE);
+            if (!string.IsNullOrEmpty(codeField.Type))
+            {
+                codeWriter.Write(Marks.COLON).Write(Marks.WHITESPACE);
 
-            codeWriter.Write(codeField.Type ?? string.Empty);
+                codeWriter.Write(codeField.Type ?? string.Empty);
+            }
 
             if (codeField.Value != null)
             {

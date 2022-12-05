@@ -41,6 +41,11 @@ namespace Panosen.CodeDom.Typescript
         /// 枚举
         /// </summary>
         public List<CodeEnum> EnumList { get; set; }
+
+        /// <summary>
+        /// 常量
+        /// </summary>
+        public List<CodeConstant> ConstantList { get; set; }
     }
 
     /// <summary>
@@ -87,7 +92,7 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个类
         /// </summary>
-        public static CodeClass AddClass(this CodeFile codeFile, string name, string summary = null, AccessModifiers accessModifiers = AccessModifiers.None)
+        public static CodeClass AddClass(this CodeFile codeFile, string name, string summary = null, AccessModifiers accessModifiers = AccessModifiers.None, bool export = false)
         {
             if (codeFile.ClassList == null)
             {
@@ -98,6 +103,7 @@ namespace Panosen.CodeDom.Typescript
             codeClass.Name = name;
             codeClass.Summary = summary;
             codeClass.AccessModifiers = accessModifiers;
+            codeClass.Export = export;
 
             codeFile.ClassList.Add(codeClass);
 
@@ -121,7 +127,7 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个接口
         /// </summary>
-        public static CodeInterface AddInterface(this CodeFile codeFile, string name, string summary = null, AccessModifiers accessModifiers = AccessModifiers.None)
+        public static CodeInterface AddInterface(this CodeFile codeFile, string name, string summary = null, AccessModifiers accessModifiers = AccessModifiers.None, bool export = false)
         {
             if (codeFile.InterfaceList == null)
             {
@@ -132,6 +138,7 @@ namespace Panosen.CodeDom.Typescript
             codeInterface.Name = name;
             codeInterface.Summary = summary;
             codeInterface.AccessModifiers = accessModifiers;
+            codeInterface.Export = export;
 
             codeFile.InterfaceList.Add(codeInterface);
 
@@ -233,6 +240,45 @@ namespace Panosen.CodeDom.Typescript
             importItem.NotDefault = notDefault;
 
             importMap[source].Add(importItem);
+        }
+
+        /// <summary>
+        /// 添加常量
+        /// </summary>
+        public static TCodeFile AddConstant<TCodeFile>(this TCodeFile codeFile, CodeConstant codeConstant)
+            where TCodeFile : CodeFile
+        {
+            if (codeFile.ConstantList == null)
+            {
+                codeFile.ConstantList = new List<CodeConstant>();
+            }
+
+            codeFile.ConstantList.Add(codeConstant);
+
+            return codeFile;
+        }
+
+        /// <summary>
+        /// 添加常量
+        /// </summary>
+        public static CodeConstant AddConstant<TCodeFile>(this TCodeFile codeFile, string type, string name, string value, bool export = false, AccessModifiers accessModifiers = AccessModifiers.None)
+            where TCodeFile : CodeFile
+        {
+            if (codeFile.ConstantList == null)
+            {
+                codeFile.ConstantList = new List<CodeConstant>();
+            }
+
+            var codeConstant = new CodeConstant();
+            codeConstant.Type = type;
+            codeConstant.Name = name;
+            codeConstant.Value = value;
+            codeConstant.Export = export;
+            codeConstant.AccessModifiers = accessModifiers;
+
+            codeFile.ConstantList.Add(codeConstant);
+
+            return codeConstant;
         }
     }
 }
