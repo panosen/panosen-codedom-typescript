@@ -78,6 +78,7 @@ public class Student {
             }
 
             var methodX = codeClass.AddMethod("methodX");
+            methodX.Type = "void";
             for (int i = 0; i < 4; i++)
             {
                 methodX.AddParameter("int", $"p{i + 1}");

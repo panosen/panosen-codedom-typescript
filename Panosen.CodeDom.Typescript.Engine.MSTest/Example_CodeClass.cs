@@ -41,6 +41,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
         {
             CodeMethod codeMethod = new CodeMethod();
             codeMethod.Name = "theCon";
+            codeMethod.Type = "void";
 
             codeMethod.StepCollection = new StepCollection();
 
@@ -51,6 +52,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
         {
             CodeMethod codeMethod = new CodeMethod();
             codeMethod.Name = "calc";
+            codeMethod.Type = "void";
 
             codeMethod.StepCollection = new StepCollection();
 

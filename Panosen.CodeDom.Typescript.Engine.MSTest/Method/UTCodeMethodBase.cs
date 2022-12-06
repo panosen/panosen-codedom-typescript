@@ -12,6 +12,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
         {
             CodeMethod codeMethod = new CodeMethod();
             codeMethod.Name = "TestMethod";
+            codeMethod.Type = "void";
 
             PrepareCodeMethod(codeMethod);
 

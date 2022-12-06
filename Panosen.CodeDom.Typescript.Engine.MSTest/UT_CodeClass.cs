@@ -46,7 +46,7 @@ public class Student {
      */
     private Field3: string = ""333"";
 
-    public TheConstructor(): void {
+    public TheConstructor() {
     }
 
     /**
@@ -129,6 +129,7 @@ public class Student {
             }
 
             var methodX = codeClass.AddMethod("methodX");
+            methodX.Type = "void";
             for (int i = 0; i < 4; i++)
             {
                 methodX.AddParameter("number", $"p{i + 1}");
