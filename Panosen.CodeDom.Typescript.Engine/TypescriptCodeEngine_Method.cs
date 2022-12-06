@@ -56,14 +56,10 @@ namespace Panosen.CodeDom.Typescript.Engine
             //泛型参数约束
             GenerateGenericParametersConstraint(codeMethod.GenericParamsterList, codeWriter, options);
 
-            codeWriter.Write(Marks.COLON).Write(Marks.WHITESPACE);
             if (!string.IsNullOrEmpty(codeMethod.Type))
             {
+                codeWriter.Write(Marks.COLON).Write(Marks.WHITESPACE);
                 codeWriter.Write(codeMethod.Type);
-            }
-            else
-            {
-                codeWriter.Write(Keywords.VOID);
             }
 
             if (codeMethod.StepCollection == null)
