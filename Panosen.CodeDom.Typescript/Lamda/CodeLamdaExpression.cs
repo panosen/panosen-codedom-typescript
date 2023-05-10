@@ -9,13 +9,8 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// ${Parameter} => ${Expression}
     /// </summary>
-    public class CodeLamdaExpression : DataItem
+    public class CodeLamdaExpression : Lamda
     {
-        /// <summary>
-        /// 参数
-        /// </summary>
-        public string Parameter { get; set; }
-
         /// <summary>
         /// ${Expression}
         /// </summary>
@@ -27,17 +22,6 @@ namespace Panosen.CodeDom.Typescript
     /// </summary>
     public static class CodeLamdaExpressionExtension
     {
-        /// <summary>
-        /// SetParameter
-        /// </summary>
-        public static TCodeLamdaStatementExpression SetParameter<TCodeLamdaStatementExpression>(this TCodeLamdaStatementExpression lamda, string parameter)
-            where TCodeLamdaStatementExpression : CodeLamdaExpression
-        {
-            lamda.Parameter = parameter;
-
-            return lamda;
-        }
-
         /// <summary>
         /// SetExpression
         /// </summary>

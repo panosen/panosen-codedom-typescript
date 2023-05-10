@@ -12,14 +12,20 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
         {
             var chain = codeMethod.StepStatementChain($"response.Items = bookDBContext.Countrys");
 
-            chain.AddCallMethodExpression("Where")
-                .AddParameterOfLamdaExpression().SetParameter("v").SetExpression($"v.Name == name");
+            var where = chain.AddCallMethodExpression("Where");
+            var whereA = where.AddParameterOfLamdaExpression();
+            whereA.AddParameter("string", "v");
+            whereA.SetExpression($"v.Name == name");
 
-            chain.AddCallMethodExpression("Select").AddParameterOfLamdaNewInstance().SetClassName($"CasLocationVo").SetParameter("v")
+            var lamda1 = chain.AddCallMethodExpression("Select").AddParameterOfLamdaNewInstance();
+            lamda1.AddParameter("any", "v");
+            lamda1.SetClassName($"CasLocationVo")
                 .StepStatement($"Value = \"country:\" + v.Value")
                 .StepStatement($"Label = v.Label");
 
-            chain.AddCallMethodExpression("Select", true).AddParameterOfLamdaNewInstance().SetClassName($"CasLocationVo").SetParameter("v")
+            var lamda2 = chain.AddCallMethodExpression("Select", true).AddParameterOfLamdaNewInstance();
+            lamda2.AddParameter("any", "v");
+            lamda2.SetClassName($"CasLocationVo")
                 .StepStatement($"Value = \"country:\" + v.Value")
                 .StepStatement($"Label = v.Label");
 
@@ -30,12 +36,12 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
         protected override string PrepareExpected()
         {
             return @"TestMethod(): void {
-    response.Items = bookDBContext.Countrys.Where(v => v.Name == name).Select(v => new CasLocationVo
+    response.Items = bookDBContext.Countrys.Where((v: string) => v.Name == name).Select((v: any) => new CasLocationVo
     {
         Value = ""country:"" + v.Value,
         Label = v.Label
     })
-        .Select(v => new CasLocationVo
+        .Select((v: any) => new CasLocationVo
         {
             Value = ""country:"" + v.Value,
             Label = v.Label

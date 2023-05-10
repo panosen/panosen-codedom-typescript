@@ -17,16 +17,17 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
             {
                 var exp = chain.AddCallMethodExpression("AddJwtBearer");
                 exp.AddParameter("OK");
-                var builders = exp.AddParameterOfLamdaStepBuilderCollection().SetParameter("options");
-                builders.StepStatement("//ok");
-                builders.StepStatement("x = 1;");
+                var lamda = exp.AddParameterOfLamdaStepBuilderCollection();
+                lamda.AddParameter("any", "options");
+                lamda.StepStatement("//ok");
+                lamda.StepStatement("x = 1;");
             }
         }
 
         protected override string PrepareExpected()
         {
             return @"TestMethod(): void {
-    services.AddAuth(Scheme).AddJwtBearer(OK, options => {
+    services.AddAuth(Scheme).AddJwtBearer(OK, (options: any) => {
         //ok
         x = 1;
     });

@@ -17,8 +17,10 @@ namespace Panosen.CodeDom.Typescript.Engine
             if (codeWriter == null) { return; }
             options = options ?? new GenerateOptions();
 
+            GenerateLamdaParameter(lamda, codeWriter, options);
+
             // x => new ${ClassName}
-            codeWriter.Write(lamda.Parameter).Write(Marks.WHITESPACE).Write(Marks.EQUAL).Write(Marks.GREATER_THAN).Write(Marks.WHITESPACE)
+            codeWriter.Write(Marks.WHITESPACE).Write(Marks.EQUAL).Write(Marks.GREATER_THAN).Write(Marks.WHITESPACE)
                 .Write(Keywords.NEW);
 
             if (!string.IsNullOrEmpty(lamda.ClassName))

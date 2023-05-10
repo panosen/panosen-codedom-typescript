@@ -9,13 +9,8 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// x => new Item { }
     /// </summary>
-    public class CodeLamdaNewInstance : DataItem
+    public class CodeLamdaNewInstance : Lamda
     {
-        /// <summary>
-        /// 参数
-        /// </summary>
-        public string Parameter { get; set; }
-
         /// <summary>
         /// 类名
         /// </summary>
@@ -37,17 +32,6 @@ namespace Panosen.CodeDom.Typescript
     /// </summary>
     public static class CodeLamdaNewInstanceExpressionExtension
     {
-        /// <summary>
-        /// SetParameter
-        /// </summary>
-        public static TCodeLamdaNewInstanceExpression SetParameter<TCodeLamdaNewInstanceExpression>(this TCodeLamdaNewInstanceExpression codeLamdaNewInstanceExpression, string parameter)
-            where TCodeLamdaNewInstanceExpression : CodeLamdaNewInstance
-        {
-            codeLamdaNewInstanceExpression.Parameter = parameter;
-
-            return codeLamdaNewInstanceExpression;
-        }
-
         /// <summary>
         /// SetBooleanExpression
         /// </summary>

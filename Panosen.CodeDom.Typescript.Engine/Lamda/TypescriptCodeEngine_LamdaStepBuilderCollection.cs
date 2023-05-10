@@ -17,12 +17,14 @@ namespace Panosen.CodeDom.Typescript.Engine
             if (codeWriter == null) { return; }
             options = options ?? new GenerateOptions();
 
+            GenerateLamdaParameter(lamda, codeWriter, options);
+
             /*
              x => {
                  //do
              }
              */
-            codeWriter.Write(lamda.Parameter)
+            codeWriter
                 .Write(Marks.WHITESPACE).Write(Marks.EQUAL).Write(Marks.GREATER_THAN).Write(Marks.WHITESPACE).WriteLine(Marks.LEFT_BRACE);
             options.PushIndent();
 

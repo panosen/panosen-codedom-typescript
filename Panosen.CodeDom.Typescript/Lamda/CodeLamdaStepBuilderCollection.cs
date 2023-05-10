@@ -9,13 +9,8 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// ${Parameter} => ${Expression}
     /// </summary>
-    public class CodeLamdaStepBuilderCollection : DataItem, IStepCollectionHost
+    public class CodeLamdaStepBuilderCollection : Lamda, IStepCollectionHost
     {
-        /// <summary>
-        /// 参数
-        /// </summary>
-        public string Parameter { get; set; }
-
         #region IStepCollectionHost Members
 
         /// <summary>
@@ -31,15 +26,5 @@ namespace Panosen.CodeDom.Typescript
     /// </summary>
     public static class CodeLamdaStepBuilderCollectionExtension
     {
-        /// <summary>
-        /// SetParameter
-        /// </summary>
-        public static TCodeLamdaStepBuilderCollection SetParameter<TCodeLamdaStepBuilderCollection>(this TCodeLamdaStepBuilderCollection lamda, string parameter)
-            where TCodeLamdaStepBuilderCollection : CodeLamdaStepBuilderCollection
-        {
-            lamda.Parameter = parameter;
-
-            return lamda;
-        }
     }
 }

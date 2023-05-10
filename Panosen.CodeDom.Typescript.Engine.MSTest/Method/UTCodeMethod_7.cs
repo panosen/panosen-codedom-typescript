@@ -12,14 +12,14 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
         {
             var xx = codeMethod.StepStatementChain().AddCallMethodExpression("list.Where");
             var lamda = xx.AddParameterOfLamdaExpression();
-            lamda.SetParameter("x");
+            lamda.AddParameter("number", "x");
             lamda.SetExpression("x.DataStatus == 1");
         }
 
         protected override string PrepareExpected()
         {
             return @"TestMethod(): void {
-    list.Where(x => x.DataStatus == 1);
+    list.Where((x: number) => x.DataStatus == 1);
 }
 ";
         }

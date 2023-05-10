@@ -12,14 +12,18 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
         {
             var xx = codeMethod.StepStatementChain("this");
             xx.AddCallMethodExpression("MethodC");
-            xx.AddCallMethodExpression("MethodD", true).AddParameterOfLamdaNewInstance().SetParameter("v").SetClassName("Student").StepStatement("Name = 2");
+            var methodd = xx.AddCallMethodExpression("MethodD", true);
+
+            var lamda = methodd.AddParameterOfLamdaNewInstance();
+            lamda.AddParameter("any", "v");
+            lamda.SetClassName("Student").StepStatement("Name = 2");
         }
 
         protected override string PrepareExpected()
         {
             return @"TestMethod(): void {
     this.MethodC()
-        .MethodD(v => new Student
+        .MethodD((v: any) => new Student
         {
             Name = 2
         });

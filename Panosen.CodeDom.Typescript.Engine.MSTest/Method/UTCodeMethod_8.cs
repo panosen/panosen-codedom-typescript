@@ -13,7 +13,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
             var xx = codeMethod.StepStatementChain().AddCallMethodExpression("list.Select");
             var lamda = xx.AddParameterOfLamdaNewInstance();
             lamda.SetClassName("Student");
-            lamda.SetParameter("x");
+            lamda.AddParameter("any", "x");
             lamda.StepStatement("DataStatus = 1");
             lamda.StepStatement("LastTimeTime = DateTime.Now");
         }
@@ -21,7 +21,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest.Method
         protected override string PrepareExpected()
         {
             return @"TestMethod(): void {
-    list.Select(x => new Student
+    list.Select((x: any) => new Student
     {
         DataStatus = 1,
         LastTimeTime = DateTime.Now

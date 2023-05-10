@@ -113,6 +113,15 @@ namespace Panosen.CodeDom.Typescript
         }
 
         /// <summary>
+        /// 添加 DataValue 类型的参数
+        /// </summary>
+        public static DataObject AddParameterOfDataObject<TCallMethodExpression>(this TCallMethodExpression callMethodExpression)
+            where TCallMethodExpression : CallMethodExpression
+        {
+            return AddParameter<DataObject>(callMethodExpression);
+        }
+
+        /// <summary>
         /// 添加 CodeLamdaNewInstance 类型的参数
         /// </summary>
         public static CodeLamdaNewInstance AddParameterOfLamdaNewInstance<TCallMethodExpression>(this TCallMethodExpression callMethodExpression)
