@@ -21,7 +21,7 @@ public class Student<TAdd, TMinus, TCalc>
 ";
         }
 
-        protected override Code PrepareCode()
+        protected override CodeClass PrepareCode()
         {
             CodeClass codeClass = new CodeClass();
             codeClass.Name = "Student";

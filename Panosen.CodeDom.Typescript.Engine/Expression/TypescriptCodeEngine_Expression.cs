@@ -14,7 +14,7 @@ namespace Panosen.CodeDom.Typescript.Engine
         /// <summary>
         /// GenerateExpresion
         /// </summary>
-        public void GenerateExpresion(CodeExpression codeExpression, CodeWriter codeWriter, GenerateOptions options)
+        public void GenerateExpresion(CodeExpression codeExpression, CodeWriter codeWriter, GenerateOptions options = null)
         {
             if (codeExpression == null) { return; }
             if (codeWriter == null) { return; }

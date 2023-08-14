@@ -7,7 +7,7 @@ namespace Panosen.CodeDom.Typescript
     /// <summary>
     /// 有名称的编程对象
     /// </summary>
-    public abstract class CodeObject : Code
+    public abstract class CodeObject
     {
         /// <summary>
         /// 名称

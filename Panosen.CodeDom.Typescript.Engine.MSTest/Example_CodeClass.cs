@@ -11,7 +11,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
     [TestClass]
     public class Example_CodeClass : UTBase
     {
-        protected override Code PrepareCode()
+        protected override CodeClass PrepareCode()
         {
             CodeClass codeClass = new CodeClass();
             codeClass.Name = "Student";

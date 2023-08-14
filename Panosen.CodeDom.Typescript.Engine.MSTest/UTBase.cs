@@ -17,7 +17,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
 
             StringBuilder builder = new StringBuilder();
 
-            generator.Generate(option, builder);
+            generator.GenerateClass(option, builder);
 
             var actual = builder.ToString();
 
@@ -28,6 +28,6 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
 
         protected abstract string PrepareExpected();
 
-        protected abstract Code PrepareCode();
+        protected abstract CodeClass PrepareCode();
     }
 }
