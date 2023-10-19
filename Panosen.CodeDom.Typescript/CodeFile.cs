@@ -234,6 +234,11 @@ namespace Panosen.CodeDom.Typescript
                 importMap.Add(source, new List<ImportItem>());
             }
 
+            if (importMap[source].Any(v => v.Name == name && v.Alias == alias && v.NotDefault == notDefault))
+            {
+                return;
+            }
+
             var importItem = new ImportItem();
             importItem.Name = name;
             importItem.Alias = alias;
