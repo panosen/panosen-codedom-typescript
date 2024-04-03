@@ -21,9 +21,9 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             codeWriter.Write(options.IndentString);
 
-            if (codeEnum.AccessModifiers != AccessModifiers.None)
+            if (codeEnum.Export)
             {
-                codeWriter.Write(codeEnum.AccessModifiers.Value()).Write(Marks.WHITESPACE);
+                codeWriter.Write(Keywords.EXPORT).Write(Marks.WHITESPACE);
             }
 
             codeWriter.Write(Keywords.ENUM).Write(Marks.WHITESPACE).Write(codeEnum.Name ?? string.Empty);

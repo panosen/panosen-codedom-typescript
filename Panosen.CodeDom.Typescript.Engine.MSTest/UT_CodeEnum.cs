@@ -32,7 +32,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
             return @"/**
  * 状态
  */
-public enum Status
+export enum Status
 {
 
     A_0,
@@ -70,7 +70,7 @@ public enum Status
             CodeEnum codeEnum = new CodeEnum();
             codeEnum.Name = "Status";
             codeEnum.Summary = "状态";
-            codeEnum.AccessModifiers = AccessModifiers.Public;
+            codeEnum.Export = true;
 
             for (int i = 0; i < 3; i++)
             {

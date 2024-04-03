@@ -14,7 +14,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
             return @"/**
  * 学生
  */
-public class Student<TAdd, TMinus, TCalc>
+class Student<TAdd, TMinus, TCalc>
     Keywords.WHERE TAdd : Add
     Keywords.WHERE TMinus : Minus, IMinus {
 }
@@ -26,7 +26,6 @@ public class Student<TAdd, TMinus, TCalc>
             CodeClass codeClass = new CodeClass();
             codeClass.Name = "Student";
             codeClass.Summary = "学生";
-            codeClass.AccessModifiers = AccessModifiers.Public;
 
             codeClass.AddGenericParameter("TAdd").AddConstraint("Add");
             codeClass.AddGenericParameter("TMinus").AddConstraint("Minus", "IMinus");

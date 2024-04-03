@@ -12,9 +12,9 @@ namespace Panosen.CodeDom.Typescript
     public class CodeEnum : CodeObject
     {
         /// <summary>
-        /// 访问修饰符
+        /// export
         /// </summary>
-        public AccessModifiers AccessModifiers { get; set; }
+        public bool Export { get; set; }
 
         /// <summary>
         /// 字段
@@ -30,9 +30,9 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 设置访问修饰符
         /// </summary>
-        public static TCodeEnum SetAccessModifiers<TCodeEnum>(this TCodeEnum codeEnum, AccessModifiers accessModifiers) where TCodeEnum : CodeEnum
+        public static TCodeEnum SetExport<TCodeEnum>(this TCodeEnum codeEnum, bool export) where TCodeEnum : CodeEnum
         {
-            codeEnum.AccessModifiers = accessModifiers;
+            codeEnum.Export = export;
 
             return codeEnum;
         }

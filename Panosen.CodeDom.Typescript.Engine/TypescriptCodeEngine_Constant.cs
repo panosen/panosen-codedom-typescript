@@ -30,7 +30,9 @@ namespace Panosen.CodeDom.Typescript.Engine
                 codeWriter.Write(Keywords.EXPORT).Write(Marks.WHITESPACE);
             }
 
-            codeWriter.Write(Keywords.CONST).Write(Marks.WHITESPACE);
+            codeWriter.Write(Keywords.STATIC).Write(Marks.WHITESPACE);
+
+            codeWriter.Write(Keywords.READONLY).Write(Marks.WHITESPACE);
 
             codeWriter.Write(codeConstant.Name ?? string.Empty);
 
@@ -38,7 +40,9 @@ namespace Panosen.CodeDom.Typescript.Engine
 
             codeWriter.Write(codeConstant.Type ?? string.Empty);
 
-            codeWriter.Write(Marks.WHITESPACE).Write(Marks.EQUAL).Write(Marks.WHITESPACE).Write(codeConstant.Value ?? "NULL");
+            codeWriter.Write(Marks.WHITESPACE).Write(Marks.EQUAL).Write(Marks.WHITESPACE);
+
+            GenerateDataValue(codeConstant.Value, codeWriter, options);
 
             codeWriter.WriteLine(Marks.SEMICOLON);
         }

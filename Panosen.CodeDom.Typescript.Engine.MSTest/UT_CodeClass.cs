@@ -14,7 +14,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
             return @"/**
  * 学生
  */
-public class Student {
+export class Student {
 
     /**
      * 常量 0
@@ -77,7 +77,7 @@ public class Student {
             CodeClass codeClass = new CodeClass();
             codeClass.Name = "Student";
             codeClass.Summary = "学生";
-            codeClass.AccessModifiers = AccessModifiers.Public;
+            codeClass.Export = true;
 
             {
                 codeClass.AddField("string", "Field0", summary: "字段 0");

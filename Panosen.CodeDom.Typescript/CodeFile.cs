@@ -92,7 +92,7 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个类
         /// </summary>
-        public static CodeClass AddClass(this CodeFile codeFile, string name, string summary = null, AccessModifiers accessModifiers = AccessModifiers.None, bool export = false)
+        public static CodeClass AddClass(this CodeFile codeFile, string name, string summary = null, bool export = false)
         {
             if (codeFile.ClassList == null)
             {
@@ -102,7 +102,6 @@ namespace Panosen.CodeDom.Typescript
             CodeClass codeClass = new CodeClass();
             codeClass.Name = name;
             codeClass.Summary = summary;
-            codeClass.AccessModifiers = accessModifiers;
             codeClass.Export = export;
 
             codeFile.ClassList.Add(codeClass);
@@ -162,7 +161,7 @@ namespace Panosen.CodeDom.Typescript
         /// <summary>
         /// 添加一个枚举
         /// </summary>
-        public static CodeEnum AddEnum(this CodeFile codeFile, string name, string summary = null, AccessModifiers accessModifiers = AccessModifiers.None)
+        public static CodeEnum AddEnum(this CodeFile codeFile, string name, string summary = null, bool export = false)
         {
             if (codeFile.EnumList == null)
             {
@@ -172,7 +171,7 @@ namespace Panosen.CodeDom.Typescript
             CodeEnum codeEnum = new CodeEnum();
             codeEnum.Name = name;
             codeEnum.Summary = summary;
-            codeEnum.AccessModifiers = accessModifiers;
+            codeEnum.Export = export;
 
             codeFile.EnumList.Add(codeEnum);
 

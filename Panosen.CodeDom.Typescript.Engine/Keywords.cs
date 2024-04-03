@@ -193,6 +193,11 @@ namespace Panosen.CodeDom.Typescript.Engine
         /// </summary>
         public const string TRUE = "true";
 
+        /// <summary>
+        /// readonly
+        /// </summary>
+        public const string READONLY = "readonly";
+
         #endregion
 
 

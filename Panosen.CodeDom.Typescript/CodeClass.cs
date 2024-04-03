@@ -30,11 +30,6 @@ namespace Panosen.CodeDom.Typescript
         public bool IsPartial { get; set; }
 
         /// <summary>
-        /// 访问修饰符
-        /// </summary>
-        public AccessModifiers AccessModifiers { get; set; }
-
-        /// <summary>
         /// 字段
         /// </summary>
         public List<CodeField> FieldList { get; set; }
@@ -170,16 +165,6 @@ namespace Panosen.CodeDom.Typescript
             baseCodeClass.Name = name;
 
             codeClass.BaseClass = baseCodeClass;
-
-            return codeClass;
-        }
-
-        /// <summary>
-        /// 设置访问修饰符
-        /// </summary>
-        public static TCodeClass SetAccessModifiers<TCodeClass>(this TCodeClass codeClass, AccessModifiers accessModifiers) where TCodeClass : CodeClass
-        {
-            codeClass.AccessModifiers = accessModifiers;
 
             return codeClass;
         }

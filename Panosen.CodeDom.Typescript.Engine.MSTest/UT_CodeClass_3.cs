@@ -14,7 +14,7 @@ namespace Panosen.CodeDom.Typescript.Engine.MSTest
             return @"/**
  * 学生
  */
-public class Student<T> {
+class Student<T> {
 }
 ";
         }
@@ -24,7 +24,6 @@ public class Student<T> {
             CodeClass codeClass = new CodeClass();
             codeClass.Name = "Student";
             codeClass.Summary = "学生";
-            codeClass.AccessModifiers = AccessModifiers.Public;
 
             codeClass.AddGenericParameter("T");
 

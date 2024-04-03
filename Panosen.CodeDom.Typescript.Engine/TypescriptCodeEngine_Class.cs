@@ -36,11 +36,6 @@ namespace Panosen.CodeDom.Typescript.Engine
                 codeWriter.Write(Keywords.EXPORT).Write(Marks.WHITESPACE);
             }
 
-            if (codeClass.AccessModifiers != AccessModifiers.None)
-            {
-                codeWriter.Write(codeClass.AccessModifiers.Value()).Write(Marks.WHITESPACE);
-            }
-
             if (codeClass.IsStatic)
             {
                 codeWriter.Write("Keywords.STATIC").Write(Marks.WHITESPACE);
