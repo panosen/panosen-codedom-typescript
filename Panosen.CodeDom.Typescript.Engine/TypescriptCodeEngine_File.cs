@@ -79,6 +79,8 @@ namespace Panosen.CodeDom.Typescript.Engine
                         codeWriter.WriteLine();
                     }
                 }
+
+                codeWriter.WriteLine();
             }
         }
 
