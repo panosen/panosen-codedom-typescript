@@ -43,6 +43,8 @@ namespace Panosen.CodeDom.Typescript.Engine
                         codeWriter.WriteLine();
                     }
                 }
+
+                codeWriter.WriteLine();
             }
 
             if (codeFile.InterfaceList != null && codeFile.InterfaceList.Count > 0)
@@ -59,6 +61,8 @@ namespace Panosen.CodeDom.Typescript.Engine
                         codeWriter.WriteLine();
                     }
                 }
+
+                codeWriter.WriteLine();
             }
 
             if (codeFile.EnumList != null && codeFile.EnumList.Count > 0)
